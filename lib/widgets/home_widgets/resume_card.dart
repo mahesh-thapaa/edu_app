@@ -9,147 +9,135 @@ class ResumeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
-
+      width: double.infinity,
+      constraints: const BoxConstraints(minHeight: 116),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF3D5AFE),
-        borderRadius: BorderRadius.circular(25),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(color: const Color(0xFFE9E1E6), width: 2),
       ),
-
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
-
         children: [
-          CircleAvatar(
-            radius: 20,
-            backgroundColor: Colors.black26,
-
-            child: const Icon(Icons.access_time, color: Colors.white, size: 25),
+          Container(
+            width: 42,
+            height: 42,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: const Color(0xFFD9C7CC), width: 2),
+            ),
+            child: const Icon(
+              Icons.access_time_rounded,
+              size: 22,
+              color: Color(0xFFD9C7CC),
+            ),
           ),
-
-          const SizedBox(width: 20),
-
+          const SizedBox(width: 14),
           Expanded(
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
-
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-
-                        children: [
-                          Text(
-                            resume.title,
-
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          const SizedBox(height: 5),
-
-                          Text(
-                            resume.subtitle,
-
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-
-                            style: const TextStyle(
-                              color: Colors.white70,
-                              fontSize: 15,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    const SizedBox(width: 15),
-
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.indigo[900],
-
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
-                        ),
-
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                      ),
-
-                      onPressed: () {
-                        print("Continue Clicked");
-                      },
-
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.min,
-
-                        children: [
-                          Text(
-                            "Continue",
-
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          ),
-
-                          SizedBox(width: 5),
-
-                          Icon(Icons.play_arrow, color: Colors.white),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 15),
-
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-
-                  child: LinearProgressIndicator(
-                    value: resume.progess,
-                    minHeight: 10,
-
-                    backgroundColor: Colors.white30,
-
-                    valueColor: const AlwaysStoppedAnimation(Colors.blueAccent),
+                Text(
+                  resume.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF231826),
                   ),
                 ),
-
-                const SizedBox(height: 10),
-
+                const SizedBox(height: 2),
+                Text(
+                  resume.subtitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFF4E4450),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: LinearProgressIndicator(
+                    value: resume.progess,
+                    minHeight: 8,
+                    backgroundColor: const Color(0xFFE7E4EA),
+                    color: const Color(0xFF4558F4),
+                  ),
+                ),
+                const SizedBox(height: 8),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                   children: [
-                    Text(
-                      "${resume.attempted}/${resume.total} Attempted",
-
-                      style: const TextStyle(color: Colors.white, fontSize: 15),
+                    Expanded(
+                      child: Text(
+                        '${resume.attempted}/${resume.total} Attemped',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF2E2430),
+                        ),
+                      ),
                     ),
-
-                    Text(
-                      resume.remainingTime,
-
-                      style: const TextStyle(
-                        color: Colors.white70,
-                        fontSize: 14,
+                    const SizedBox(width: 10),
+                    const Icon(
+                      Icons.access_time,
+                      size: 12,
+                      color: Color(0xFF8E8A90),
+                    ),
+                    const SizedBox(width: 4),
+                    Flexible(
+                      child: Text(
+                        resume.remainingTime,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 11,
+                          color: Color(0xFF8E8A90),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ],
+            ),
+          ),
+          const SizedBox(width: 12),
+          SizedBox(
+            width: 146,
+            height: 42,
+            child: Material(
+              color: const Color(0xFF4558F4),
+              borderRadius: BorderRadius.circular(21),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(21),
+                onTap: () {},
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Continue',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Icon(Icons.arrow_forward, color: Colors.white, size: 18),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
         ],
