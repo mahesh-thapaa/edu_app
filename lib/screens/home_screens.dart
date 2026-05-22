@@ -1,5 +1,6 @@
 // import 'package:edu_app/models/recent_mock_test_models.dart';
 import 'package:edu_app/models/resume_models.dart';
+import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:edu_app/widgets/home_widgets/catagories.dart';
 import 'package:edu_app/widgets/home_widgets/recent_mock_test.dart';
 import 'package:edu_app/widgets/home_widgets/resume_card.dart';
@@ -57,6 +58,7 @@ class HomeScreens extends StatelessWidget {
     ];
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FF),
+      bottomNavigationBar: const BottomNavBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -75,6 +77,28 @@ class HomeScreens extends StatelessWidget {
                   children: [
                     ResumeCard(resume: resume),
                     const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Text(
+                          "Recent Mock Tests",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF1D1D1D),
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          "View All",
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
                     ...recentMocks.map(
                       (mock) => RecentMockCard(
                         mock: mock,

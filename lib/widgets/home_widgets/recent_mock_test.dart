@@ -79,7 +79,7 @@ class RecentMockCard extends StatelessWidget {
                             Text(
                               "${mock.questions} Questions",
                               style: const TextStyle(
-                                fontSize: 13,
+                                fontSize: 11,
                                 color: Color(0xFF2F3341),
                               ),
                             ),
@@ -90,14 +90,14 @@ class RecentMockCard extends StatelessWidget {
                           children: [
                             const Icon(
                               Icons.access_time,
-                              size: 16,
+                              size: 11,
                               color: Color(0xFF2F3341),
                             ),
                             const SizedBox(width: 4),
                             Text(
                               mock.duration,
                               style: const TextStyle(
-                                fontSize: 13,
+                                fontSize: 11,
                                 color: Color(0xFF2F3341),
                               ),
                             ),
@@ -109,14 +109,14 @@ class RecentMockCard extends StatelessWidget {
                             const Icon(
                               Icons.bar_chart,
                               color: Color(0xFFF2A10A),
-                              size: 16,
+                              size: 11,
                             ),
                             const SizedBox(width: 4),
                             Text(
                               mock.difficulty,
                               style: const TextStyle(
                                 color: Color(0xFFF2A10A),
-                                fontSize: 13,
+                                fontSize: 11,
                               ),
                             ),
                           ],
@@ -130,7 +130,7 @@ class RecentMockCard extends StatelessWidget {
                       mock.attemptDate,
                       style: const TextStyle(
                         color: Color(0xFF6F7484),
-                        fontSize: 12,
+                        fontSize: 11,
                       ),
                     ),
                   ],
@@ -166,13 +166,13 @@ class RecentMockCard extends StatelessWidget {
                             "${mock.score}%",
                             style: const TextStyle(
                               fontWeight: FontWeight.w700,
-                              fontSize: 16,
+                              fontSize: 11,
                             ),
                           ),
                           const Text(
                             "Score",
                             style: TextStyle(
-                              fontSize: 10,
+                              fontSize: 9,
                               color: Color(0xFF6F7484),
                             ),
                           ),
@@ -192,15 +192,15 @@ class RecentMockCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       child: const Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: 16,
+                          horizontal: 12,
                           vertical: 8,
                         ),
                         child: Text(
                           "Start Again",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
@@ -218,7 +218,7 @@ class RecentMockCard extends StatelessWidget {
                         "View Results",
                         style: TextStyle(
                           color: Color(0xFF375DFB),
-                          fontSize: 16,
+                          fontSize: 13,
                           fontWeight: FontWeight.w500,
                         ),
                       ),

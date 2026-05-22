@@ -27,7 +27,7 @@ class TopBar extends StatelessWidget {
             children: [
               const Text(
                 "Your Courses",
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
               ),
               Spacer(),
               Text(

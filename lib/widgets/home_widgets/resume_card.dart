@@ -44,7 +44,7 @@ class ResumeCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 15,
                     fontWeight: FontWeight.w700,
                     color: Color(0xFF231826),
                   ),
@@ -55,7 +55,7 @@ class ResumeCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
-                    fontSize: 13,
+                    fontSize: 12,
                     fontWeight: FontWeight.w400,
                     color: Color(0xFF4E4450),
                   ),
@@ -79,7 +79,7 @@ class ResumeCard extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                          fontSize: 13,
+                          fontSize: 12,
                           fontWeight: FontWeight.w500,
                           color: Color(0xFF2E2430),
                         ),
@@ -98,7 +98,7 @@ class ResumeCard extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
-                          fontSize: 11,
+                          fontSize: 12,
                           color: Color(0xFF8E8A90),
                         ),
                       ),
@@ -110,8 +110,8 @@ class ResumeCard extends StatelessWidget {
           ),
           const SizedBox(width: 12),
           SizedBox(
-            width: 146,
-            height: 42,
+            width: 130,
+            height: 38,
             child: Material(
               color: const Color(0xFF4558F4),
               borderRadius: BorderRadius.circular(21),
@@ -128,7 +128,7 @@ class ResumeCard extends StatelessWidget {
                         'Continue',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
