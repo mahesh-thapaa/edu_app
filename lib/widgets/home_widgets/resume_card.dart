@@ -1,4 +1,5 @@
 import 'package:edu_app/models/home_models/resume_models.dart';
+import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ResumeCard extends StatelessWidget {
@@ -13,9 +14,9 @@ class ResumeCard extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 116),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFFF9F9FF),
+        color: AppColors.backgroundlight,
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: const Color(0xFFE9E1E6), width: 2),
+        border: Border.all(color: AppColors.bColor, width: 2),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -25,12 +26,12 @@ class ResumeCard extends StatelessWidget {
             height: 42,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: const Color(0xFFD9C7CC), width: 2),
+              border: Border.all(color: AppColors.iLight, width: 2),
             ),
             child: const Icon(
               Icons.access_time_rounded,
               size: 22,
-              color: Color(0xFFD9C7CC),
+              color: AppColors.iLight,
             ),
           ),
           const SizedBox(width: 14),
@@ -46,7 +47,7 @@ class ResumeCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
-                    color: Color(0xFF231826),
+                    color: AppColors.htextLight,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -57,7 +58,7 @@ class ResumeCard extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
-                    color: Color(0xFF4E4450),
+                    color: AppColors.iDark,
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -66,8 +67,8 @@ class ResumeCard extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: resume.progess,
                     minHeight: 8,
-                    backgroundColor: const Color(0xFFE7E4EA),
-                    color: const Color(0xFF4558F4),
+                    backgroundColor: AppColors.iDark,
+                    color: AppColors.buttonColorLight,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -81,7 +82,7 @@ class ResumeCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
-                          color: Color(0xFF8E8A90),
+                          color: AppColors.iDark,
                         ),
                       ),
                     ),
@@ -89,7 +90,7 @@ class ResumeCard extends StatelessWidget {
                     const Icon(
                       Icons.access_time,
                       size: 12,
-                      color: Color(0xFF8E8A90),
+                      color: AppColors.iDark,
                     ),
                     const SizedBox(width: 4),
                     Flexible(
@@ -99,7 +100,7 @@ class ResumeCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           fontSize: 12,
-                          color: Color(0xFF8E8A90),
+                          color: AppColors.iDark,
                         ),
                       ),
                     ),
@@ -113,7 +114,7 @@ class ResumeCard extends StatelessWidget {
             width: 130,
             height: 38,
             child: Material(
-              color: const Color(0xFF375DFB),
+              color: AppColors.buttonColorLight,
               borderRadius: BorderRadius.circular(21),
               child: InkWell(
                 borderRadius: BorderRadius.circular(21),
@@ -127,13 +128,17 @@ class ResumeCard extends StatelessWidget {
                       Text(
                         'Continue',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.backgroundlight,
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(width: 8),
-                      Icon(Icons.arrow_forward, color: Colors.white, size: 18),
+                      Icon(
+                        Icons.arrow_forward,
+                        color: AppColors.backgroundlight,
+                        size: 18,
+                      ),
                     ],
                   ),
                 ),

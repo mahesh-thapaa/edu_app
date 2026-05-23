@@ -1,3 +1,4 @@
+import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import '../../models/test_models.dart/mock_test_models.dart';
 
@@ -12,9 +13,9 @@ class MockTestCard extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0xFFF9F9FF),
+        color: AppColors.backgroundlight,
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: const Color(0xFFDDE1FF), width: 2),
+        border: Border.all(color: AppColors.bColor, width: 2),
       ),
       child: Column(
         children: List.generate(mockTests.length, (index) {
@@ -38,7 +39,7 @@ class MockTestCard extends StatelessWidget {
                             style: const TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
-                              color: Colors.black87,
+                              color: AppColors.backgroundDark,
                             ),
                           ),
 
@@ -49,7 +50,7 @@ class MockTestCard extends StatelessWidget {
                               Icon(
                                 Icons.description_outlined,
                                 size: 14,
-                                color: Colors.grey.shade600,
+                                color: AppColors.iDark,
                               ),
 
                               const SizedBox(width: 4),
@@ -58,7 +59,7 @@ class MockTestCard extends StatelessWidget {
                                 "${mock.questions} Questions",
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: Colors.grey.shade600,
+                                  color: AppColors.iDark,
                                 ),
                               ),
 
@@ -67,7 +68,7 @@ class MockTestCard extends StatelessWidget {
                               Icon(
                                 Icons.timer_outlined,
                                 size: 14,
-                                color: Colors.grey.shade600,
+                                color: AppColors.iDark,
                               ),
 
                               const SizedBox(width: 4),
@@ -76,7 +77,7 @@ class MockTestCard extends StatelessWidget {
                                 "${mock.duration} mins",
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: Colors.grey.shade600,
+                                  color: AppColors.iDark,
                                 ),
                               ),
                             ],
@@ -90,7 +91,7 @@ class MockTestCard extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF375DFB),
+                        backgroundColor: AppColors.buttonColorLight,
                         elevation: 2,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -103,7 +104,7 @@ class MockTestCard extends StatelessWidget {
                       child: const Text(
                         "Start Again",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.backgroundlight,
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                         ),
@@ -120,7 +121,7 @@ class MockTestCard extends StatelessWidget {
                   child: Divider(
                     height: 1,
                     thickness: 1,
-                    color: Color(0xFFE5E7EB),
+                    color: AppColors.iDark,
                   ),
                 ),
             ],

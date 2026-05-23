@@ -1,4 +1,5 @@
 import 'package:edu_app/models/home_models/recent_mock_test_models.dart';
+import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class RecentMockTest extends StatelessWidget {
@@ -12,9 +13,9 @@ class RecentMockTest extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color: const Color(0xFFF9F9FF),
+        color: AppColors.backgroundlight,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: const Color(0xFFD7DDF4), width: 2),
+        border: Border.all(color: AppColors.bColor, width: 2),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +25,7 @@ class RecentMockTest extends StatelessWidget {
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF1D1D1D),
+              color: AppColors.htextLight,
             ),
           ),
           Row(
@@ -43,7 +44,7 @@ class RecentMockTest extends StatelessWidget {
                         Icon(
                           Icons.description_outlined,
                           size: 14,
-                          color: Colors.grey.shade600,
+                          color: AppColors.iDark,
                         ),
 
                         const SizedBox(width: 4),
@@ -52,7 +53,7 @@ class RecentMockTest extends StatelessWidget {
                           "${mock.questions} Questions",
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.grey.shade600,
+                            color: AppColors.iDark,
                           ),
                         ),
                       ],
@@ -64,7 +65,7 @@ class RecentMockTest extends StatelessWidget {
                         Icon(
                           Icons.timer_outlined,
                           size: 14,
-                          color: Colors.grey.shade600,
+                          color: AppColors.iDark,
                         ),
 
                         const SizedBox(width: 4),
@@ -73,7 +74,7 @@ class RecentMockTest extends StatelessWidget {
                           mock.duration,
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.grey.shade600,
+                            color: AppColors.iDark,
                           ),
                         ),
                       ],
@@ -120,8 +121,8 @@ class RecentMockTest extends StatelessWidget {
                             child: CircularProgressIndicator(
                               value: mock.score / 100,
                               strokeWidth: 6,
-                              backgroundColor: const Color(0xFFE8E8FF),
-                              color: const Color(0xFF4361EE),
+                              backgroundColor: AppColors.backgroundlight,
+                              color: AppColors.buttonColorDark,
                             ),
                           ),
 
@@ -133,6 +134,7 @@ class RecentMockTest extends StatelessWidget {
                                 style: const TextStyle(
                                   fontWeight: FontWeight.w700,
                                   fontSize: 11,
+                                  color: AppColors.iDark,
                                 ),
                               ),
 
@@ -141,6 +143,7 @@ class RecentMockTest extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 8,
                                   fontWeight: FontWeight.w500,
+                                  color: AppColors.iDark,
                                 ),
                               ),
                             ],
@@ -158,7 +161,7 @@ class RecentMockTest extends StatelessWidget {
                             },
 
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF4361EE),
+                              backgroundColor: AppColors.buttonColorLight,
 
                               elevation: 2,
 
@@ -175,7 +178,7 @@ class RecentMockTest extends StatelessWidget {
                             child: const Text(
                               "Start Again",
                               style: TextStyle(
-                                color: Colors.white,
+                                color: AppColors.backgroundlight,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -192,7 +195,7 @@ class RecentMockTest extends StatelessWidget {
                               "View Result",
                               style: TextStyle(
                                 fontSize: 13,
-                                color: Color(0xFF375DFB),
+                                color: AppColors.buttonColorLight,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),

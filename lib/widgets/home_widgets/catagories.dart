@@ -1,4 +1,5 @@
 import 'package:edu_app/models/home_models/catagories_models.dart';
+import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class Catagories extends StatelessWidget {
@@ -38,16 +39,16 @@ class Catagories extends StatelessWidget {
             margin: const EdgeInsets.only(right: 18),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: const Color(0xFFF9F9FF),
+              color: AppColors.backgroundlight,
               borderRadius: BorderRadius.circular(26),
-              border: Border.all(color: const Color(0xFFE8E8FF), width: 2),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.03),
-                  blurRadius: 10,
-                  offset: const Offset(0, 5),
-                ),
-              ],
+              border: Border.all(color: AppColors.bColor, width: 2),
+              // boxShadow: [
+              //   BoxShadow(
+              //     color: Colors.black.withValues(alpha: 0.03),
+              //     blurRadius: 10,
+              //     offset: const Offset(0, 5),
+              //   ),
+              // ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,14 +60,14 @@ class Catagories extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
-                        color: Color(0xFF1D1D1D),
+                        color: AppColors.htextLight,
                       ),
                     ),
                     const Spacer(),
                     Text(
                       "ACTIVE",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: AppColors.htextLight,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -77,15 +78,15 @@ class Catagories extends StatelessWidget {
                   category.subtitle,
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.grey.shade700,
+                    color: AppColors.iDark,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 SizedBox(height: 10),
                 LinearProgressIndicator(
                   value: 0.7,
-                  backgroundColor: Colors.grey.shade300,
-                  color: const Color(0xFF4B5CFF),
+                  backgroundColor: AppColors.iDark,
+                  color: AppColors.buttonColorLight,
                 ),
                 SizedBox(height: 10),
                 const SizedBox(height: 7),
@@ -93,7 +94,7 @@ class Catagories extends StatelessWidget {
                   category.subject,
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.grey.shade700,
+                    color: AppColors.iDark,
                     fontWeight: FontWeight.w400,
                   ),
                 ),

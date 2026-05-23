@@ -6,6 +6,7 @@ import 'package:edu_app/widgets/home_widgets/recent_mock_test.dart';
 import 'package:edu_app/widgets/home_widgets/resume_card.dart';
 import 'package:edu_app/models/home_models/recent_mock_test_models.dart';
 import 'package:edu_app/widgets/home_widgets/top_bar.dart';
+import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreens extends StatelessWidget {
@@ -53,7 +54,7 @@ class HomeScreens extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FF),
+      backgroundColor: AppColors.backgroundlight,
       bottomNavigationBar: const BottomNavBar(currentIndex: 0),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -70,7 +71,7 @@ class HomeScreens extends StatelessWidget {
                       "Your course",
                       style: TextStyle(
                         fontSize: 20,
-                        color: Color(0xFF1D1D1D),
+                        color: AppColors.htextLight,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -82,7 +83,7 @@ class HomeScreens extends StatelessWidget {
                       child: const Text(
                         "View All",
                         style: TextStyle(
-                          color: Color(0xFF375DFB),
+                          color: AppColors.buttonColorLight,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -111,14 +112,14 @@ class HomeScreens extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
-                            color: Color(0xFF1D1D1D),
+                            color: AppColors.htextLight,
                           ),
                         ),
                         Spacer(),
                         Text(
                           "View All",
                           style: TextStyle(
-                            color: Color(0xFF375DFB),
+                            color: AppColors.buttonColorLight,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),

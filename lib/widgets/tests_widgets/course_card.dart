@@ -1,99 +1,195 @@
-// widgets/course_card.dart
-
-import 'package:edu_app/models/test_models.dart/course_card_models.dart';
-// import 'package:edu_app/models/test_models/course_card_models.dart';
-// import 'package:edu_app/data/test_data.dart';
+import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:edu_app/models/test_models.dart/course_card_models.dart';
 
 class CourseCard extends StatelessWidget {
   final CourseCardModels course;
+
   const CourseCard({super.key, required this.course});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
-      padding: EdgeInsets.all(18),
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: Color(0xFFF9F9FF),
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Color(0xFFD7DDF4)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.03),
-            blurRadius: 10,
-            offset: Offset(0, 5),
-          ),
-        ],
+        color: AppColors.backgroundlight,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.bColor, width: 2),
+        // boxShadow: [
+        //   BoxShadow(
+        //     color: Colors.black.withValues(alpha: 0.03),
+        //     blurRadius: 10,
+        //     offset: const Offset(0, 5),
+        //   ),
+        // ],
       ),
+
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          /// TITLE
+          Text(
+            course.title,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w700,
+              color: AppColors.htextLight,
+            ),
+          ),
+
+          const SizedBox(height: 8),
+
+          /// DESCRIPTION
+          Text(
+            course.description,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 14,
+              height: 1.5,
+              color: AppColors.iDark,
+            ),
+          ),
+
+          const SizedBox(height: 22),
+
+          /// BOTTOM SECTION
           Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
+              /// STATS
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: [
-                    Text(
-                      course.title,
-                      // maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
+                    /// MOCK TESTS
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Icon(
+                            Icons.play_circle_fill,
+                            size: 18,
+                            color: AppColors.iDark,
+                          ),
+
+                          const SizedBox(height: 6),
+
+                          Text(
+                            "${course.mockTests}",
+                            style: const TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.iDark,
+                            ),
+                          ),
+
+                          const SizedBox(height: 2),
+
+                          const Text(
+                            "Mock Tests",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: AppColors.iDark,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      course.description,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 13,
-                        color: Color(0xFF6B7280),
+
+                    /// STUDENTS
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Icon(
+                            Icons.people,
+                            size: 18,
+                            color: AppColors.iDark,
+                          ),
+
+                          const SizedBox(height: 6),
+
+                          Text(
+                            "${course.students}",
+                            style: const TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.iDark,
+                            ),
+                          ),
+
+                          const SizedBox(height: 2),
+
+                          const Text(
+                            "Students",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: AppColors.iDark,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    /// AVG SCORE
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Icon(
+                            Icons.bar_chart,
+                            size: 18,
+                            color: AppColors.iDark,
+                          ),
+
+                          const SizedBox(height: 6),
+
+                          Text(
+                            "${course.averageScore}%",
+                            style: const TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.iDark,
+                            ),
+                          ),
+
+                          const SizedBox(height: 2),
+
+                          const Text(
+                            "Avg Score",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: AppColors.iDark,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
-          SizedBox(height: 10),
-          Row(
-            children: [
-              Icon(Icons.play_circle_fill, size: 16, color: Color(0xFF131B2E)),
-              SizedBox(width: 4),
-              Text(
-                "${course.mockTests} \nMock Tests",
-                style: TextStyle(fontSize: 13, color: Color(0xFF131B2E)),
-              ),
-              SizedBox(width: 16),
-              Icon(Icons.people, size: 16, color: Color(0xFF131B2E)),
-              SizedBox(width: 4),
-              Text(
-                "${course.students} \nStudents",
-                style: TextStyle(fontSize: 13, color: Color(0xFF131B2E)),
-              ),
-              SizedBox(width: 16),
-              Icon(Icons.bar_chart, size: 16, color: Color(0xFF131B2E)),
-              SizedBox(width: 4),
-              Text(
-                " ${course.averageScore}% \nAvg. Score",
-                style: TextStyle(fontSize: 13, color: Color(0xFF131B2E)),
-              ),
-              Spacer(),
+
+              const SizedBox(width: 16),
+
+              /// BUTTON
               ElevatedButton(
                 onPressed: () {},
-                child: Icon(Icons.arrow_forward, size: 20, color: Colors.white),
+
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF375DFB),
+                  backgroundColor: AppColors.buttonColorLight,
+                  elevation: 0,
+                  padding: const EdgeInsets.all(18),
+
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(14),
                   ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 8,
-                  ),
+                ),
+
+                child: const Icon(
+                  Icons.arrow_forward,
+                  color: AppColors.backgroundlight,
+                  size: 22,
                 ),
               ),
             ],
