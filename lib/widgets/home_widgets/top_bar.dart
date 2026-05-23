@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TopBar extends StatelessWidget {
-  const TopBar({super.key});
+  // final String title;
+
+  const TopBar({
+    super.key,
+    // required this.title
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +17,7 @@ class TopBar extends StatelessWidget {
         children: [
           Row(
             children: [
+              const Text("", style: TextStyle(fontSize: 1)),
               const CircleAvatar(radius: 20, child: Text("")),
               const Spacer(),
               IconButton(
@@ -19,24 +25,6 @@ class TopBar extends StatelessWidget {
                   print("Notification Icon Presses");
                 },
                 icon: const Icon(Icons.notifications),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              const Text(
-                "Your Courses",
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-              ),
-              Spacer(),
-              Text(
-                "View All",
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
               ),
             ],
           ),

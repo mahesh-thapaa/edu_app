@@ -1,4 +1,4 @@
-import 'package:edu_app/models/catagories_models.dart';
+import 'package:edu_app/models/home_models/catagories_models.dart';
 import 'package:flutter/material.dart';
 
 class Catagories extends StatelessWidget {
@@ -38,7 +38,7 @@ class Catagories extends StatelessWidget {
             margin: const EdgeInsets.only(right: 18),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: const Color(0xFFF9F9FF),
               borderRadius: BorderRadius.circular(26),
               border: Border.all(color: const Color(0xFFE8E8FF), width: 2),
               boxShadow: [

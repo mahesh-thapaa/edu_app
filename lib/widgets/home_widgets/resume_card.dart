@@ -1,4 +1,4 @@
-import 'package:edu_app/models/resume_models.dart';
+import 'package:edu_app/models/home_models/resume_models.dart';
 import 'package:flutter/material.dart';
 
 class ResumeCard extends StatelessWidget {
@@ -13,7 +13,7 @@ class ResumeCard extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 116),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: const Color(0xFFF9F9FF),
         borderRadius: BorderRadius.circular(22),
         border: Border.all(color: const Color(0xFFE9E1E6), width: 2),
       ),
@@ -81,7 +81,7 @@ class ResumeCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
-                          color: Color(0xFF2E2430),
+                          color: Color(0xFF8E8A90),
                         ),
                       ),
                     ),
@@ -113,7 +113,7 @@ class ResumeCard extends StatelessWidget {
             width: 130,
             height: 38,
             child: Material(
-              color: const Color(0xFF4558F4),
+              color: const Color(0xFF375DFB),
               borderRadius: BorderRadius.circular(21),
               child: InkWell(
                 borderRadius: BorderRadius.circular(21),
