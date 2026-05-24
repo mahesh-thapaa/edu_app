@@ -39,9 +39,12 @@ class Catagories extends StatelessWidget {
             margin: const EdgeInsets.only(right: 18),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: AppColors.backgroundlight,
+              color: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(26),
-              border: Border.all(color: AppColors.bColor, width: 2),
+              border: Border.all(
+                color: Theme.of(context).dividerColor,
+                width: 2,
+              ),
               // boxShadow: [
               //   BoxShadow(
               //     color: Colors.black.withValues(alpha: 0.03),
@@ -57,17 +60,17 @@ class Catagories extends StatelessWidget {
                   children: [
                     Text(
                       category.title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.htextLight,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                     const Spacer(),
                     Text(
                       "ACTIVE",
                       style: TextStyle(
-                        color: AppColors.htextLight,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -78,15 +81,15 @@ class Catagories extends StatelessWidget {
                   category.subtitle,
                   style: TextStyle(
                     fontSize: 14,
-                    color: AppColors.iDark,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 SizedBox(height: 10),
                 LinearProgressIndicator(
                   value: 0.7,
-                  backgroundColor: AppColors.iDark,
-                  color: AppColors.buttonColorLight,
+                  backgroundColor: Theme.of(context).dividerColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 SizedBox(height: 10),
                 const SizedBox(height: 7),
@@ -94,7 +97,7 @@ class Catagories extends StatelessWidget {
                   category.subject,
                   style: TextStyle(
                     fontSize: 14,
-                    color: AppColors.iDark,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
                     fontWeight: FontWeight.w400,
                   ),
                 ),

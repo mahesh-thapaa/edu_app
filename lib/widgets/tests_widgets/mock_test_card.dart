@@ -13,9 +13,9 @@ class MockTestCard extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.backgroundlight,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: AppColors.bColor, width: 2),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 2),
       ),
       child: Column(
         children: List.generate(mockTests.length, (index) {
@@ -36,10 +36,12 @@ class MockTestCard extends StatelessWidget {
                         children: [
                           Text(
                             mock.title,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
-                              color: AppColors.backgroundDark,
+                              color: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.color,
                             ),
                           ),
 
@@ -50,7 +52,9 @@ class MockTestCard extends StatelessWidget {
                               Icon(
                                 Icons.description_outlined,
                                 size: 14,
-                                color: AppColors.iDark,
+                                color: Theme.of(
+                                  context,
+                                ).textTheme.bodyLarge?.color,
                               ),
 
                               const SizedBox(width: 4),
@@ -59,7 +63,9 @@ class MockTestCard extends StatelessWidget {
                                 "${mock.questions} Questions",
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: AppColors.iDark,
+                                  color: Theme.of(
+                                    context,
+                                  ).textTheme.bodyLarge?.color,
                                 ),
                               ),
 
@@ -68,7 +74,9 @@ class MockTestCard extends StatelessWidget {
                               Icon(
                                 Icons.timer_outlined,
                                 size: 14,
-                                color: AppColors.iDark,
+                                color: Theme.of(
+                                  context,
+                                ).textTheme.bodyLarge?.color,
                               ),
 
                               const SizedBox(width: 4),
@@ -77,7 +85,9 @@ class MockTestCard extends StatelessWidget {
                                 "${mock.duration} mins",
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: AppColors.iDark,
+                                  color: Theme.of(
+                                    context,
+                                  ).textTheme.bodyLarge?.color,
                                 ),
                               ),
                             ],
@@ -101,10 +111,10 @@ class MockTestCard extends StatelessWidget {
                           vertical: 12,
                         ),
                       ),
-                      child: const Text(
+                      child: Text(
                         "Start Again",
                         style: TextStyle(
-                          color: AppColors.backgroundlight,
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                         ),
@@ -115,13 +125,13 @@ class MockTestCard extends StatelessWidget {
               ),
 
               if (index != mockTests.length - 1)
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
 
                   child: Divider(
                     height: 1,
                     thickness: 1,
-                    color: AppColors.iDark,
+                    color: Theme.of(context).dividerColor,
                   ),
                 ),
             ],

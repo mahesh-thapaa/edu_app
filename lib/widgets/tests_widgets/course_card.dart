@@ -13,16 +13,9 @@ class CourseCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: AppColors.backgroundlight,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.bColor, width: 2),
-        // boxShadow: [
-        //   BoxShadow(
-        //     color: Colors.black.withValues(alpha: 0.03),
-        //     blurRadius: 10,
-        //     offset: const Offset(0, 5),
-        //   ),
-        // ],
+        border: Border.all(color: Theme.of(context).dividerColor, width: 2),
       ),
 
       child: Column(
@@ -31,10 +24,10 @@ class CourseCard extends StatelessWidget {
           /// TITLE
           Text(
             course.title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w700,
-              color: AppColors.htextLight,
+              color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
           ),
 
@@ -45,10 +38,10 @@ class CourseCard extends StatelessWidget {
             course.description,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 14,
               height: 1.5,
-              color: AppColors.iDark,
+              color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
           ),
 
@@ -66,31 +59,35 @@ class CourseCard extends StatelessWidget {
                     Expanded(
                       child: Column(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.play_circle_fill,
                             size: 18,
-                            color: AppColors.iDark,
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
                           ),
 
                           const SizedBox(height: 6),
 
                           Text(
                             "${course.mockTests}",
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
-                              color: AppColors.iDark,
+                              color: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.color,
                             ),
                           ),
 
                           const SizedBox(height: 2),
 
-                          const Text(
+                          Text(
                             "Mock Tests",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 11,
-                              color: AppColors.iDark,
+                              color: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.color,
                             ),
                           ),
                         ],
@@ -101,31 +98,35 @@ class CourseCard extends StatelessWidget {
                     Expanded(
                       child: Column(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.people,
                             size: 18,
-                            color: AppColors.iDark,
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
                           ),
 
                           const SizedBox(height: 6),
 
                           Text(
-                            "${course.students}",
-                            style: const TextStyle(
+                            course.students,
+                            style: TextStyle(
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
-                              color: AppColors.iDark,
+                              color: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.color,
                             ),
                           ),
 
                           const SizedBox(height: 2),
 
-                          const Text(
+                          Text(
                             "Students",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 11,
-                              color: AppColors.iDark,
+                              color: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.color,
                             ),
                           ),
                         ],
@@ -136,31 +137,35 @@ class CourseCard extends StatelessWidget {
                     Expanded(
                       child: Column(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.bar_chart,
                             size: 18,
-                            color: AppColors.iDark,
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
                           ),
 
                           const SizedBox(height: 6),
 
                           Text(
                             "${course.averageScore}%",
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
-                              color: AppColors.iDark,
+                              color: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.color,
                             ),
                           ),
 
                           const SizedBox(height: 2),
 
-                          const Text(
+                          Text(
                             "Avg Score",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 11,
-                              color: AppColors.iDark,
+                              color: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.color,
                             ),
                           ),
                         ],
@@ -177,7 +182,7 @@ class CourseCard extends StatelessWidget {
                 onPressed: () {},
 
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.buttonColorLight,
+                  backgroundColor: Theme.of(context).primaryColor,
                   elevation: 0,
                   padding: const EdgeInsets.all(18),
 

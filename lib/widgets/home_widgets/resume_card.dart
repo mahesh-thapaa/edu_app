@@ -14,9 +14,9 @@ class ResumeCard extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 116),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.backgroundlight,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: AppColors.bColor, width: 2),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 2),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,12 +26,15 @@ class ResumeCard extends StatelessWidget {
             height: 42,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: AppColors.iLight, width: 2),
+              border: Border.all(
+                color: Theme.of(context).primaryColor,
+                width: 2,
+              ),
             ),
-            child: const Icon(
+            child: Icon(
               Icons.access_time_rounded,
               size: 22,
-              color: AppColors.iLight,
+              color: Theme.of(context).primaryColor,
             ),
           ),
           const SizedBox(width: 14),
@@ -44,10 +47,10 @@ class ResumeCard extends StatelessWidget {
                   resume.title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
-                    color: AppColors.htextLight,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -55,10 +58,10 @@ class ResumeCard extends StatelessWidget {
                   resume.subtitle,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
-                    color: AppColors.iDark,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -67,8 +70,8 @@ class ResumeCard extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: resume.progess,
                     minHeight: 8,
-                    backgroundColor: AppColors.iDark,
-                    color: AppColors.buttonColorLight,
+                    backgroundColor: Theme.of(context).dividerColor,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -79,18 +82,18 @@ class ResumeCard extends StatelessWidget {
                         '${resume.attempted}/${resume.total} Attemped',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
-                          color: AppColors.iDark,
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
                         ),
                       ),
                     ),
                     const SizedBox(width: 10),
-                    const Icon(
+                    Icon(
                       Icons.access_time,
                       size: 12,
-                      color: AppColors.iDark,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
                     ),
                     const SizedBox(width: 4),
                     Flexible(
@@ -98,9 +101,9 @@ class ResumeCard extends StatelessWidget {
                         resume.remainingTime,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.iDark,
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
                         ),
                       ),
                     ),
@@ -114,7 +117,7 @@ class ResumeCard extends StatelessWidget {
             width: 130,
             height: 38,
             child: Material(
-              color: AppColors.buttonColorLight,
+              color: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(21),
               child: InkWell(
                 borderRadius: BorderRadius.circular(21),

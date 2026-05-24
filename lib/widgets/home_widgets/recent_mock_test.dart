@@ -13,19 +13,19 @@ class RecentMockTest extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color: AppColors.backgroundlight,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: AppColors.bColor, width: 2),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 2),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             mock.subject,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: AppColors.htextLight,
+              color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
           ),
           Row(
@@ -44,7 +44,7 @@ class RecentMockTest extends StatelessWidget {
                         Icon(
                           Icons.description_outlined,
                           size: 14,
-                          color: AppColors.iDark,
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
                         ),
 
                         const SizedBox(width: 4),
@@ -53,7 +53,7 @@ class RecentMockTest extends StatelessWidget {
                           "${mock.questions} Questions",
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppColors.iDark,
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
                           ),
                         ),
                       ],
@@ -65,7 +65,7 @@ class RecentMockTest extends StatelessWidget {
                         Icon(
                           Icons.timer_outlined,
                           size: 14,
-                          color: AppColors.iDark,
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
                         ),
 
                         const SizedBox(width: 4),
@@ -74,7 +74,7 @@ class RecentMockTest extends StatelessWidget {
                           mock.duration,
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppColors.iDark,
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
                           ),
                         ),
                       ],
@@ -121,8 +121,8 @@ class RecentMockTest extends StatelessWidget {
                             child: CircularProgressIndicator(
                               value: mock.score / 100,
                               strokeWidth: 6,
-                              backgroundColor: AppColors.backgroundlight,
-                              color: AppColors.buttonColorDark,
+                              backgroundColor: Theme.of(context).cardColor,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
 
@@ -131,19 +131,23 @@ class RecentMockTest extends StatelessWidget {
                             children: [
                               Text(
                                 "${mock.score}%",
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   fontSize: 11,
-                                  color: AppColors.iDark,
+                                  color: Theme.of(
+                                    context,
+                                  ).textTheme.bodyLarge?.color,
                                 ),
                               ),
 
-                              const Text(
+                              Text(
                                 "Score",
                                 style: TextStyle(
                                   fontSize: 8,
                                   fontWeight: FontWeight.w500,
-                                  color: AppColors.iDark,
+                                  color: Theme.of(
+                                    context,
+                                  ).textTheme.bodyLarge?.color,
                                 ),
                               ),
                             ],
@@ -195,7 +199,9 @@ class RecentMockTest extends StatelessWidget {
                               "View Result",
                               style: TextStyle(
                                 fontSize: 13,
-                                color: AppColors.buttonColorLight,
+                                color: Theme.of(
+                                  context,
+                                ).textTheme.bodyLarge?.color,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),

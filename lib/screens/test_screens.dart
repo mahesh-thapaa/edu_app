@@ -1,6 +1,7 @@
 import 'package:edu_app/data/test_data.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:edu_app/widgets/bottom_navbar.dart';
+import 'package:edu_app/widgets/home_widgets/top_bar.dart';
 // import 'package:edu_app/widgets/home_widgets/top_bar.dart';
 import 'package:edu_app/widgets/tests_widgets/course_card.dart';
 import 'package:edu_app/widgets/tests_widgets/mock_test_card.dart';
@@ -12,7 +13,7 @@ class TestScreens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundlight,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomNavigationBar: const BottomNavBar(currentIndex: 1),
 
       body: SafeArea(
@@ -20,7 +21,7 @@ class TestScreens extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // const TopBar(),
+              const TopBar(),
 
               // const SizedBox(height: 2),
               Padding(
@@ -31,7 +32,7 @@ class TestScreens extends StatelessWidget {
                       'Tests',
                       style: TextStyle(
                         fontSize: 20,
-                        color: AppColors.htextLight,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -59,7 +60,7 @@ class TestScreens extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13,
                     height: 1.35,
-                    color: AppColors.iDark,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
                   ),
                 ),
               ),
@@ -85,7 +86,7 @@ class TestScreens extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
-                        color: AppColors.htextLight,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                     Spacer(),
@@ -95,7 +96,7 @@ class TestScreens extends StatelessWidget {
                       child: Text(
                         "View All",
                         style: TextStyle(
-                          color: AppColors.buttonColorLight,
+                          color: Theme.of(context).primaryColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),

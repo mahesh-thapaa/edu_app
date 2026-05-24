@@ -1,5 +1,6 @@
 import 'package:edu_app/screens/home_screens.dart';
 import 'package:edu_app/models/navbar_items_models.dart';
+import 'package:edu_app/screens/results_screen.dart';
 import 'package:edu_app/screens/test_screens.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class BottomNavBar extends StatelessWidget {
 
   PageRouteBuilder<void> _noAnimationRoute(Widget page) {
     return PageRouteBuilder<void>(
-      pageBuilder: (_, __, ___) => page,
+      pageBuilder: (_, _, _) => page,
       transitionDuration: Duration.zero,
       reverseTransitionDuration: Duration.zero,
       transitionsBuilder: (_, animation, secondaryAnimation, child) {
@@ -40,6 +41,14 @@ class BottomNavBar extends StatelessWidget {
         context,
         _noAnimationRoute(const TestScreens()),
       );
+      return;
+    }
+
+    if (itemIndex == 2) {
+      Navigator.pushReplacement(
+        context,
+        _noAnimationRoute(const ResultsScreen()),
+      );
     }
   }
 
@@ -51,10 +60,8 @@ class BottomNavBar extends StatelessWidget {
         height: 86,
         width: double.infinity,
         decoration: const BoxDecoration(
-          color: const Color(0xFFF9F9FF),
-          border: Border(
-            top: BorderSide(color: const Color(0xFFE6E6F2), width: 1.5),
-          ),
+          color: Color(0xFFF9F9FF),
+          border: Border(top: BorderSide(color: Color(0xFFE6E6F2), width: 1.5)),
         ),
         padding: const EdgeInsets.fromLTRB(16, 6, 16, 8),
         child: Row(

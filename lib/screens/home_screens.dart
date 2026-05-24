@@ -1,5 +1,6 @@
 // import 'package:edu_app/models/recent_mock_test_models.dart';
 import 'package:edu_app/models/home_models/resume_models.dart';
+import 'package:edu_app/provider/theme_provider.dart';
 import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:edu_app/widgets/home_widgets/catagories.dart';
 import 'package:edu_app/widgets/home_widgets/recent_mock_test.dart';
@@ -8,6 +9,7 @@ import 'package:edu_app/models/home_models/recent_mock_test_models.dart';
 import 'package:edu_app/widgets/home_widgets/top_bar.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreens extends StatelessWidget {
   const HomeScreens({super.key});
@@ -54,8 +56,27 @@ class HomeScreens extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      backgroundColor: AppColors.backgroundlight,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomNavigationBar: const BottomNavBar(currentIndex: 0),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColor,
+
+        onPressed: () {
+          final themeProvider = Provider.of<ThemeProvider>(
+            context,
+            listen: false,
+          );
+
+          themeProvider.toggleTheme();
+        },
+
+        child: Icon(
+          Provider.of<ThemeProvider>(context).isDarkMode
+              ? Icons.light_mode
+              : Icons.dark_mode,
+          color: Colors.white,
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -67,11 +88,11 @@ class HomeScreens extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       "Your course",
                       style: TextStyle(
                         fontSize: 20,
-                        color: AppColors.htextLight,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -80,10 +101,10 @@ class HomeScreens extends StatelessWidget {
                       onTap: () {
                         print("View all courses tapped");
                       },
-                      child: const Text(
+                      child: Text(
                         "View All",
                         style: TextStyle(
-                          color: AppColors.buttonColorLight,
+                          color: Theme.of(context).primaryColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -112,14 +133,14 @@ class HomeScreens extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.htextLight,
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
                           ),
                         ),
                         Spacer(),
                         Text(
                           "View All",
                           style: TextStyle(
-                            color: AppColors.buttonColorLight,
+                            color: Theme.of(context).primaryColor,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
