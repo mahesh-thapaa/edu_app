@@ -27,14 +27,14 @@ class ResumeCard extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).dividerColor,
                 width: 2,
               ),
             ),
             child: Icon(
               Icons.access_time_rounded,
               size: 22,
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).dividerColor,
             ),
           ),
           const SizedBox(width: 14),

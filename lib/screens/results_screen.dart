@@ -1,7 +1,7 @@
 import 'package:edu_app/data/result_data.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:edu_app/widgets/bottom_navbar.dart';
-import 'package:edu_app/widgets/home_widgets/top_bar.dart';
+import 'package:edu_app/widgets/top_bar.dart';
 import 'package:edu_app/widgets/result_widgets/result_card.dart';
 import 'package:edu_app/widgets/result_widgets/score_card.dart';
 import 'package:edu_app/widgets/result_widgets/subject_performance_card.dart';

@@ -1,5 +1,6 @@
 import 'package:edu_app/screens/home_screens.dart';
 import 'package:edu_app/models/navbar_items_models.dart';
+import 'package:edu_app/screens/profile_screens.dart';
 import 'package:edu_app/screens/results_screen.dart';
 import 'package:edu_app/screens/test_screens.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +50,14 @@ class BottomNavBar extends StatelessWidget {
         context,
         _noAnimationRoute(const ResultsScreen()),
       );
+      return;
+    }
+
+    if (itemIndex == 3) {
+      Navigator.pushReplacement(
+        context,
+        _noAnimationRoute(const ProfileScreens()),
+      );
     }
   }
 
@@ -59,9 +68,11 @@ class BottomNavBar extends StatelessWidget {
       child: Container(
         height: 86,
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Color(0xFFF9F9FF),
-          border: Border(top: BorderSide(color: Color(0xFFE6E6F2), width: 1.5)),
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          border: Border(
+            top: BorderSide(color: Theme.of(context).dividerColor, width: 1.5),
+          ),
         ),
         padding: const EdgeInsets.fromLTRB(16, 6, 16, 8),
         child: Row(
@@ -70,7 +81,7 @@ class BottomNavBar extends StatelessWidget {
               return Container(
                 width: 1,
                 height: 42,
-                color: const Color(0xFFE6E6F2),
+                color: Theme.of(context).dividerColor,
               );
             }
 
@@ -91,7 +102,7 @@ class BottomNavBar extends StatelessWidget {
                         size: 20,
                         color: isSelected
                             ? const Color(0xFF4A5CF2)
-                            : Colors.black87,
+                            : Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                       const SizedBox(height: 6),
                       Text(
@@ -101,7 +112,7 @@ class BottomNavBar extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           color: isSelected
                               ? const Color(0xFF4A5CF2)
-                              : Colors.black87,
+                              : Theme.of(context).textTheme.bodyLarge?.color,
                         ),
                       ),
                     ],

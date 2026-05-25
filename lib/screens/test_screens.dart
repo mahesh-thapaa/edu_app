@@ -1,8 +1,6 @@
 import 'package:edu_app/data/test_data.dart';
-import 'package:edu_app/theme/app_colors.dart';
 import 'package:edu_app/widgets/bottom_navbar.dart';
-import 'package:edu_app/widgets/home_widgets/top_bar.dart';
-// import 'package:edu_app/widgets/home_widgets/top_bar.dart';
+import 'package:edu_app/widgets/top_bar.dart';
 import 'package:edu_app/widgets/tests_widgets/course_card.dart';
 import 'package:edu_app/widgets/tests_widgets/mock_test_card.dart';
 import 'package:flutter/material.dart';

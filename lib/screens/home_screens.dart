@@ -6,8 +6,7 @@ import 'package:edu_app/widgets/home_widgets/catagories.dart';
 import 'package:edu_app/widgets/home_widgets/recent_mock_test.dart';
 import 'package:edu_app/widgets/home_widgets/resume_card.dart';
 import 'package:edu_app/models/home_models/recent_mock_test_models.dart';
-import 'package:edu_app/widgets/home_widgets/top_bar.dart';
-import 'package:edu_app/theme/app_colors.dart';
+import 'package:edu_app/widgets/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

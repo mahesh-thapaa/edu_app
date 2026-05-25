@@ -1,5 +1,5 @@
 import 'package:edu_app/models/home_models/catagories_models.dart';
-import 'package:edu_app/theme/app_colors.dart';
+
 import 'package:flutter/material.dart';
 
 class Catagories extends StatelessWidget {
