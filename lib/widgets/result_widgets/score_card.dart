@@ -18,7 +18,7 @@ class ScoreCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: scorecard.color,
               border: Border.all(
-                width: 2,
+                width: 1.5,
                 color: Theme.of(context).dividerColor,
               ),
               shape: BoxShape.circle,

@@ -122,7 +122,7 @@ class ResultsScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
                       color: Theme.of(context).dividerColor,
-                      width: 2,
+                      width: 1.5,
                     ),
                   ),
                   child: IntrinsicHeight(

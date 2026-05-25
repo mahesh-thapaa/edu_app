@@ -1,11 +1,9 @@
 // import 'package:edu_app/models/recent_mock_test_models.dart';
-import 'package:edu_app/models/home_models/resume_models.dart';
+import 'package:edu_app/data/home_data.dart';
 import 'package:edu_app/provider/theme_provider.dart';
 import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:edu_app/widgets/home_widgets/catagories.dart';
 import 'package:edu_app/widgets/home_widgets/recent_mock_test.dart';
-import 'package:edu_app/widgets/home_widgets/resume_card.dart';
-import 'package:edu_app/models/home_models/recent_mock_test_models.dart';
 import 'package:edu_app/widgets/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,45 +13,6 @@ class HomeScreens extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ResumeModels resume = ResumeModels(
-      title: "Resume Last Mock",
-      subtitle: "Physics Full Mock #5",
-      progess: 0.5,
-      attempted: 45,
-      total: 100,
-      remainingTime: "48 minutes ramaining",
-    );
-    final List<RecentMockTestModels> recentMocks = [
-      RecentMockTestModels(
-        subject: "Physics Full Mock Tests #5",
-        questions: 120,
-        duration: "2 hours",
-        difficulty: "Medium",
-        score: 70,
-        attemptDate: "Attempted on 1 May 2026",
-        icon: Icons.science,
-      ),
-
-      RecentMockTestModels(
-        subject: "Maths Full Mock Tests #5",
-        questions: 120,
-        duration: "2 hours",
-        difficulty: "Medium",
-        score: 60,
-        attemptDate: "Attempted on 1 May 2026",
-        icon: Icons.architecture,
-      ),
-
-      RecentMockTestModels(
-        subject: "Chemistry Full Mock Tests #5",
-        questions: 100,
-        duration: "2 hours",
-        difficulty: "Medium",
-        score: 60,
-        attemptDate: "Attempted on 1 May 2026",
-        icon: Icons.blur_on,
-      ),
-    ];
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomNavigationBar: const BottomNavBar(currentIndex: 0),
@@ -123,8 +82,8 @@ class HomeScreens extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
-                    ResumeCard(resume: resume),
-                    const SizedBox(height: 20),
+                    // ResumeCard(resume: resume),
+                    // const SizedBox(height: 20),
                     Row(
                       children: [
                         Text(

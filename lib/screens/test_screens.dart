@@ -2,7 +2,6 @@ import 'package:edu_app/data/test_data.dart';
 import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:edu_app/widgets/top_bar.dart';
 import 'package:edu_app/widgets/tests_widgets/course_card.dart';
-import 'package:edu_app/widgets/tests_widgets/mock_test_card.dart';
 import 'package:flutter/material.dart';
 
 class TestScreens extends StatelessWidget {
@@ -74,40 +73,40 @@ class TestScreens extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      "Continue Your Last Activity",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Theme.of(context).textTheme.bodyLarge?.color,
-                      ),
-                    ),
-                    Spacer(),
+              // const SizedBox(height: 15),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 20),
+              //   child: Row(
+              //     children: [
+              //       Text(
+              //         "Continue Your Last Activity",
+              //         style: TextStyle(
+              //           fontSize: 18,
+              //           fontWeight: FontWeight.w600,
+              //           color: Theme.of(context).textTheme.bodyLarge?.color,
+              //         ),
+              //       ),
+              //       Spacer(),
 
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "View All",
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 15),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: MockTestCard(mockTests: mockTests),
-              ),
+              //       GestureDetector(
+              //         onTap: () {},
+              //         child: Text(
+              //           "View All",
+              //           style: TextStyle(
+              //             color: Theme.of(context).primaryColor,
+              //             fontSize: 16,
+              //             fontWeight: FontWeight.bold,
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // SizedBox(height: 15),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 16),
+              //   child: MockTestCard(mockTests: mockTests),
+              // ),
             ],
           ),
         ),

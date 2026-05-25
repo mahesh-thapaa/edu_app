@@ -43,7 +43,7 @@ class Catagories extends StatelessWidget {
               borderRadius: BorderRadius.circular(26),
               border: Border.all(
                 color: Theme.of(context).dividerColor,
-                width: 2,
+                width: 1.5,
               ),
               // boxShadow: [
               //   BoxShadow(

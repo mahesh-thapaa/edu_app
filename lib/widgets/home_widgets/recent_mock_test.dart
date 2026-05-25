@@ -1,3 +1,4 @@
+import 'package:edu_app/components/questions/questions_card.dart';
 import 'package:edu_app/models/home_models/recent_mock_test_models.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class RecentMockTest extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Theme.of(context).dividerColor, width: 2),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 1.5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,7 +162,12 @@ class RecentMockTest extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () {
-                              print("Start Again Pressed f");
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => QuestionsCard(),
+                                ),
+                              );
                             },
 
                             style: ElevatedButton.styleFrom(

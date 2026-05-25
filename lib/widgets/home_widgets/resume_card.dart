@@ -16,7 +16,7 @@ class ResumeCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: Theme.of(context).dividerColor, width: 2),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 1.5),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,7 +28,7 @@ class ResumeCard extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(
                 color: Theme.of(context).dividerColor,
-                width: 2,
+                width: 1.5,
               ),
             ),
             child: Icon(

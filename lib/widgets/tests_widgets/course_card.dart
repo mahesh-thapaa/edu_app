@@ -1,3 +1,4 @@
+import 'package:edu_app/components/catagories/catagories_test_screen.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:edu_app/models/test_models.dart/course_card_models.dart';
@@ -15,7 +16,7 @@ class CourseCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Theme.of(context).dividerColor, width: 2),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 1.5),
       ),
 
       child: Column(
@@ -179,7 +180,14 @@ class CourseCard extends StatelessWidget {
 
               /// BUTTON
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CatagoriesTestScreen(),
+                    ),
+                  );
+                },
 
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).primaryColor,

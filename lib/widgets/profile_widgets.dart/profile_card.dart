@@ -16,64 +16,81 @@ class ProfileCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(22),
-          border: Border.all(color: Theme.of(context).dividerColor, width: 2),
+          border: Border.all(color: Theme.of(context).dividerColor, width: 1.5),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
+          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              profileCard.userName,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-                color: Theme.of(context).textTheme.bodyLarge?.color,
-              ),
+            // const SizedBox(width: 20),
+            CircleAvatar(
+              radius: 50,
+              // backgroundImage: AssetImage(),
             ),
-            const SizedBox(height: 10),
-            Text(
-              profileCard.courseName,
-              style: TextStyle(
-                fontSize: 14,
-                color: Theme.of(context).textTheme.bodyLarge?.color,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              profileCard.bio,
-              style: TextStyle(
-                fontSize: 12,
-                color: Theme.of(context).textTheme.bodyLarge?.color,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Row(
+            const SizedBox(width: 20),
+
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(
-                  Icons.calendar_month_rounded,
-                  size: 16,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
-                ),
-                const SizedBox(width: 5),
                 Text(
-                  profileCard.joinedDate,
+                  profileCard.userName,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  profileCard.courseName,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  profileCard.bio,
                   style: TextStyle(
                     fontSize: 12,
                     color: Theme.of(context).textTheme.bodyLarge?.color,
                   ),
                 ),
-                const SizedBox(width: 10),
-                Icon(
-                  Icons.location_on_rounded,
-                  size: 16,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.calendar_month_rounded,
+                      size: 16,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
+                    ),
+                    const SizedBox(width: 5),
+                    Text(
+                      profileCard.joinedDate,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 5),
-                Text(
-                  profileCard.address,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Theme.of(context).textTheme.bodyLarge?.color,
-                  ),
+
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.location_on_rounded,
+                      size: 16,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
+                    ),
+                    const SizedBox(width: 5),
+                    Text(
+                      profileCard.address,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

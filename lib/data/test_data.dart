@@ -35,27 +35,25 @@ final List<CourseCardModels> courses = [
 
 final List<MockTestModel> mockTests = [
   MockTestModel(
-    title: "Chemistry Full Mock Tests #3",
+    title: 'Chemistry Full Mock Tests #3',
     questions: 100,
-    duration: "1.5 hours",
-    buttonText: "Start Again",
+    duration: '1.5 hours',
+    buttonText: 'Start Again',
     icon: Icons.computer,
   ),
-
   MockTestModel(
-    title: "Computer Full Mock Tests #3",
+    title: 'Computer Full Mock Tests #3',
     questions: 100,
-    duration: "1.5 hours",
-    buttonText: "Start Again",
+    duration: '1.5 hours',
+    buttonText: 'Start Again',
     icon: Icons.computer,
   ),
-
   MockTestModel(
-    title: "Physics Full Mock Tests #5",
+    title: 'Physics Full Mock Tests #5',
     questions: 120,
-    duration: "2 hours",
-    buttonText: "Continue",
+    duration: '2 hours',
+    buttonText: 'Continue',
     icon: Icons.science_outlined,
-    startedDate: "Started on 3 May 2026",
+    startedDate: 'Started on 3 May 2026',
   ),
 ];

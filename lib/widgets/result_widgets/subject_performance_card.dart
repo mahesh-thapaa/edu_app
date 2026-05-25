@@ -15,7 +15,7 @@ class SubjectPerformanceCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(14),
-          border: Border.all(color: Theme.of(context).dividerColor, width: 2),
+          border: Border.all(color: Theme.of(context).dividerColor, width: 1.5),
         ),
         child: Column(
           children: List.generate(subjectPerformanceList.length, (index) {
