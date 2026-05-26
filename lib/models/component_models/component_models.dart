@@ -6,7 +6,7 @@ class ComponentModels {
   final int questionNumber;
   final int totalQuestions;
   final int answeredCount;
-  final int reviewQueueCount;
+  final int unansweredCount;
 
   ComponentModels({
     required this.title,
@@ -16,6 +16,6 @@ class ComponentModels {
     this.questionNumber = 1,
     this.totalQuestions = 1,
     this.answeredCount = 0,
-    this.reviewQueueCount = 0,
+    this.unansweredCount = 0,
   });
 }

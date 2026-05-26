@@ -1,19 +1,22 @@
 import 'dart:async';
 
+import 'package:edu_app/components/questions/widgets/buttons.dart';
+import 'package:edu_app/components/questions/widgets/question_pallet.dart';
 import 'package:edu_app/components/questions/widgets/attempted_questions.dart';
 import 'package:edu_app/components/questions/widgets/selected_options.dart';
 import 'package:edu_app/data/component_data.dart';
+import 'package:edu_app/theme/app_colors.dart';
 import 'package:edu_app/widgets/top_bar.dart';
 import 'package:flutter/material.dart';
 
-class QuestionsCard extends StatefulWidget {
-  const QuestionsCard({super.key});
+class QuestionsScreen extends StatefulWidget {
+  const QuestionsScreen({super.key});
 
   @override
-  State<QuestionsCard> createState() => _QuestionsCardState();
+  State<QuestionsScreen> createState() => _QuestionsScreenState();
 }
 
-class _QuestionsCardState extends State<QuestionsCard> {
+class _QuestionsScreenState extends State<QuestionsScreen> {
   late Timer timer;
   Duration duration = const Duration(hours: 1, minutes: 30, seconds: 15);
   late List<int> selectedOptionIndexes;
@@ -98,9 +101,7 @@ class _QuestionsCardState extends State<QuestionsCard> {
                         vertical: 6,
                       ),
                       decoration: BoxDecoration(
-                        color: Theme.of(
-                          context,
-                        ).primaryColor.withValues(alpha: 0.12),
+                        color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Row(
@@ -108,14 +109,14 @@ class _QuestionsCardState extends State<QuestionsCard> {
                           Icon(
                             Icons.timer_outlined,
                             size: 14,
-                            color: Theme.of(context).primaryColor,
+                            color: AppColors.backgroundlight,
                           ),
                           const SizedBox(width: 4),
                           Text(
                             formatTime(duration),
                             style: TextStyle(
                               fontSize: 13,
-                              color: Theme.of(context).primaryColor,
+                              color: AppColors.backgroundlight,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -158,6 +159,16 @@ class _QuestionsCardState extends State<QuestionsCard> {
                     );
                   }),
                 ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: QuestionPallet(),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
+                child: Buttons(),
               ),
             ],
           ),

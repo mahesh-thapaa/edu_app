@@ -1,4 +1,4 @@
-import 'package:edu_app/components/questions/questions_card.dart';
+import 'package:edu_app/components/questions/questions_screen.dart';
 import 'package:edu_app/models/home_models/recent_mock_test_models.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -165,7 +165,7 @@ class RecentMockTest extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => QuestionsCard(),
+                                  builder: (context) => QuestionsScreen(),
                                 ),
                               );
                             },

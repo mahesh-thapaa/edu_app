@@ -75,7 +75,7 @@ class AttemptedQuestions extends StatelessWidget {
           ),
           Container(width: 1, height: 18, color: borderColor),
           buildItem(
-            prefix: 'Unanswered: ',
+            prefix: 'UnAnswered: ',
             value: summary.unansweredCount.toString(),
             suffix: '',
           ),
