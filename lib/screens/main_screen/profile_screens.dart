@@ -1,7 +1,11 @@
 import 'package:edu_app/data/profile_data.dart';
 import 'package:edu_app/screens/settings_screen/settings_screen.dart';
 import 'package:edu_app/widgets/bottom_navbar.dart';
+import 'package:edu_app/widgets/profile_widgets.dart/account_card.dart';
+import 'package:edu_app/widgets/profile_widgets.dart/logout_buttons.dart';
+import 'package:edu_app/widgets/profile_widgets.dart/preferences_card.dart';
 import 'package:edu_app/widgets/profile_widgets.dart/profile_card.dart';
+import 'package:edu_app/widgets/profile_widgets.dart/support_card.dart';
 import 'package:edu_app/widgets/top_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -33,28 +37,15 @@ class ProfileScreens extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               ProfileCard(profileCard: profileCard),
+
               const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const SettingsScreen(),
-                          ),
-                        );
-                      },
-                      child: Icon(
-                        Icons.settings,
-                        color: Theme.of(context).textTheme.bodyLarge?.color,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              const PreferencesCard(),
+              const SizedBox(height: 20),
+              const AccountCard(),
+              const SizedBox(height: 20),
+              const SupportCard(),
+              const SizedBox(height: 20),
+              const LogoutButton(),
             ],
           ),
         ),
