@@ -46,10 +46,10 @@ class _ButtonsState extends State<Buttons> {
                 const Icon(
                   Icons.arrow_back_ios_new_outlined,
                   size: 18,
-                  color: Color(0xFF375DFB),
+                  color:AppColors.buttonColorLight,
                 ),
                 const SizedBox(width: 10),
-                Text('Previous', style: TextStyle(color: Color(0xFF375DFB))),
+                Text('Previous', style: TextStyle(color: AppColors.buttonColorLight)),
               ],
             ),
           ),
