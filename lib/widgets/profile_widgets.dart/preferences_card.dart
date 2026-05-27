@@ -1,7 +1,6 @@
+import 'package:edu_app/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'package:edu_app/provider/theme_provider.dart';
 
 class PreferencesCard extends StatefulWidget {
   const PreferencesCard({super.key});
@@ -88,14 +87,14 @@ class _PreferencesCardState extends State<PreferencesCard> {
                 ),
                 buildPreferenceRow(
                   context: context,
-                  icon: Icons.settings_outlined,
+                  icon: Icons.dark_mode_outlined,
                   title: "Dark Mode",
                   trailing: Switch(
                     value: themeProvider.isDarkMode,
                     onChanged: (_) {
                       themeProvider.toggleTheme();
                     },
-                    activeColor: Theme.of(context).primaryColor,
+                    activeThumbColor: Theme.of(context).primaryColor,
                   ),
                 ),
               ],

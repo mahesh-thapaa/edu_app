@@ -1,12 +1,10 @@
 // import 'package:edu_app/models/recent_mock_test_models.dart';
 import 'package:edu_app/data/home_data.dart';
-import 'package:edu_app/provider/theme_provider.dart';
 import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:edu_app/widgets/home_widgets/catagories.dart';
 import 'package:edu_app/widgets/home_widgets/recent_mock_test.dart';
 import 'package:edu_app/widgets/top_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreens extends StatelessWidget {
   const HomeScreens({super.key});
@@ -16,25 +14,6 @@ class HomeScreens extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomNavigationBar: const BottomNavBar(currentIndex: 0),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColor,
-
-        onPressed: () {
-          final themeProvider = Provider.of<ThemeProvider>(
-            context,
-            listen: false,
-          );
-
-          themeProvider.toggleTheme();
-        },
-
-        child: Icon(
-          Provider.of<ThemeProvider>(context).isDarkMode
-              ? Icons.light_mode
-              : Icons.dark_mode,
-          color: Colors.white,
-        ),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
