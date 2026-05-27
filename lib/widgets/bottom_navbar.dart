@@ -1,8 +1,8 @@
-import 'package:edu_app/screens/home_screens.dart';
+import 'package:edu_app/screens/main_screen/home_screens.dart';
 import 'package:edu_app/models/navbar_items_models.dart';
-import 'package:edu_app/screens/profile_screens.dart';
-import 'package:edu_app/screens/results_screen.dart';
-import 'package:edu_app/screens/test_screens.dart';
+import 'package:edu_app/screens/main_screen/profile_screens.dart';
+import 'package:edu_app/screens/main_screen/results_screen.dart';
+import 'package:edu_app/screens/main_screen/test_screens.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {

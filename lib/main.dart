@@ -1,5 +1,5 @@
 import 'package:edu_app/provider/theme_provider.dart';
-import 'package:edu_app/screens/home_screens.dart';
+import 'package:edu_app/screens/main_screen/home_screens.dart';
 import 'package:edu_app/theme/app_theme.dart';
 
 import 'package:flutter/material.dart';
