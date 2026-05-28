@@ -1,5 +1,4 @@
 import 'package:edu_app/data/profile_data.dart';
-import 'package:edu_app/screens/settings_screen/settings_screen.dart';
 import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:edu_app/widgets/profile_widgets.dart/account_card.dart';
 import 'package:edu_app/widgets/profile_widgets.dart/logout_buttons.dart';

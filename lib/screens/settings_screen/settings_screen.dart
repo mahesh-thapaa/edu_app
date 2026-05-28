@@ -2,7 +2,11 @@ import 'package:edu_app/screens/settings_screen/change_password_screen.dart';
 import 'package:edu_app/screens/settings_screen/edit_profile_screen.dart';
 import 'package:edu_app/screens/settings_screen/email_screen.dart';
 import 'package:edu_app/screens/settings_screen/phone_number_screen.dart';
-import 'package:edu_app/widgets/seetings_widgets/seetings_card.dart';
+import 'package:edu_app/widgets/seetings_widgets/account_card.dart';
+import 'package:edu_app/widgets/seetings_widgets/study__card.dart';
+import 'package:edu_app/screens/settings_screen/daily_goal_screen.dart';
+import 'package:edu_app/screens/settings_screen/preferred_screens.dart';
+import 'package:edu_app/screens/settings_screen/study_remainder_screen.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -45,20 +49,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "ACCOUNTS",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Theme.of(context).textTheme.bodyLarge?.color,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 30),
-              SettingsCard(
+              const SizedBox(height: 20),
+
+              AccountCard(
                 onEditProfileTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -83,6 +76,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     MaterialPageRoute(
                       builder: (_) => const PhoneNumberScreen(),
                     ),
+                  );
+                },
+              ),
+              const SizedBox(height: 20),
+              StudyCard(
+                onDailyGoalTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const DailyGoalScreen()),
+                  );
+                },
+                onStudyTimerTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const StudyRemainderScreen(),
+                    ),
+                  );
+                },
+                onPreferredCoursesTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const PreferredScreens()),
                   );
                 },
               ),
