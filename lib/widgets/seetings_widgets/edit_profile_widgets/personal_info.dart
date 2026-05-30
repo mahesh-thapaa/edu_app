@@ -12,12 +12,11 @@ class _PersonalInfoState extends State<PersonalInfo> {
   final TextEditingController _nameController = TextEditingController(
     text: personalInfoModels.name,
   );
-  final TextEditingController _usernameController = TextEditingController(
-    text: personalInfoModels.username,
-  );
-  final TextEditingController _dateOfBirthController = TextEditingController(
+  DateTime _selectedDate = DateTime.now();
+  late final TextEditingController
+  _dateOfJoinController = TextEditingController(
     text:
-        "${personalInfoModels.dateOfBirth.day}/${personalInfoModels.dateOfBirth.month}/${personalInfoModels.dateOfBirth.year}",
+        "${DateTime.now().day.toString().padLeft(2, '0')}/${DateTime.now().month.toString().padLeft(2, '0')}/${DateTime.now().year}",
   );
   @override
   Widget build(BuildContext context) {
@@ -74,7 +73,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Username",
+                "Date of Join",
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Theme.of(context).textTheme.bodyLarge?.color,
@@ -82,57 +81,47 @@ class _PersonalInfoState extends State<PersonalInfo> {
               ),
               const SizedBox(height: 5),
               TextField(
-                controller: _usernameController,
+                controller: _dateOfJoinController,
+                readOnly: true,
+                onTap: () async {
+                  final picked = await showDatePicker(
+                    context: context,
+                    initialDate: _selectedDate,
+                    firstDate: DateTime(2024),
+                    lastDate: DateTime.now(),
+                  );
+                  if (picked != null) {
+                    setState(() {
+                      _selectedDate = picked;
+                      _dateOfJoinController.text =
+                          "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
+                    });
+                  }
+                },
                 decoration: InputDecoration(
-                  hintText: "Enter your username",
+                  hintText: "Enter your date of join",
                   hintStyle: TextStyle(
                     color: Theme.of(
                       context,
-                    ).textTheme.bodyLarge?.color?.withValues(alpha: 0.6),
+                    ).textTheme.bodyLarge?.color?.withOpacity(0.6),
                   ),
-
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: Theme.of(context).dividerColor,
-                    ),
-                  ),
-
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: Theme.of(context).dividerColor,
-                      width: 2,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 5),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Date of Birth",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
-                ),
-              ),
-              const SizedBox(height: 5),
-              TextField(
-                controller: _dateOfBirthController,
-                decoration: InputDecoration(
-                  hintText: "Enter your date of birth",
-                  hintStyle: TextStyle(
-                    color: Theme.of(
-                      context,
-                    ).textTheme.bodyLarge?.color?.withValues(alpha: 0.6),
+                  suffixIcon: IconButton(
+                    onPressed: () async {
+                      final picked = await showDatePicker(
+                        context: context,
+                        initialDate: _selectedDate,
+                        firstDate: DateTime(1950),
+                        lastDate: DateTime.now(),
+                      );
+                      if (picked != null) {
+                        setState(() {
+                          _selectedDate = picked;
+                          _dateOfJoinController.text =
+                              "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
+                        });
+                      }
+                    },
+                    icon: Icon(Icons.calendar_today_outlined),
                   ),
 
                   border: OutlineInputBorder(
@@ -160,5 +149,12 @@ class _PersonalInfoState extends State<PersonalInfo> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _dateOfJoinController.dispose();
+    super.dispose();
   }
 }

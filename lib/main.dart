@@ -1,3 +1,4 @@
+import 'package:edu_app/auth/login_page/login_page.dart';
 import 'package:edu_app/provider/theme_provider.dart';
 import 'package:edu_app/screens/main_screen/home_screens.dart';
 import 'package:edu_app/theme/app_theme.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: const HomeScreens(),
+      home: const LoginPage(),
 
       theme: AppTheme.lightTheme,
 
