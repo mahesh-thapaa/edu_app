@@ -1,4 +1,6 @@
 import 'package:edu_app/data/result_data.dart';
+import 'package:edu_app/screens/analysis_screen.dart/detailed_analysis.dart';
+import 'package:edu_app/screens/analysis_screen.dart/subject_wise_analysis.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:edu_app/widgets/top_bar.dart';
@@ -36,7 +38,12 @@ class ResultsScreen extends StatelessWidget {
                     Spacer(),
                     ElevatedButton.icon(
                       onPressed: () {
-                        print("Download Pressed");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DetailedAnalysis(),
+                          ),
+                        );
                       },
 
                       icon: Icon(
@@ -47,41 +54,6 @@ class ResultsScreen extends StatelessWidget {
 
                       label: Text(
                         "Analytics",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: AppColors.backgroundlight,
-                        ),
-                      ),
-
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).primaryColor,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 6,
-                        ),
-
-                        minimumSize: Size.zero,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        print("Download Pressed");
-                      },
-
-                      icon: Icon(
-                        Icons.download,
-                        size: 16,
-                        color: AppColors.backgroundlight,
-                      ),
- 
-                      label: Text(
-                        "Download",
                         style: TextStyle(
                           fontSize: 12,
                           color: AppColors.backgroundlight,
@@ -169,7 +141,12 @@ class ResultsScreen extends StatelessWidget {
                     Spacer(),
                     GestureDetector(
                       onTap: () {
-                        print("View by subject Pressed");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SubjectWiseAnalysis(),
+                          ),
+                        );
                       },
                       child: Text(
                         "View by Subject",
