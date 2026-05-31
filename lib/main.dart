@@ -1,15 +1,21 @@
 import 'package:edu_app/auth/login_page/login_page.dart';
 import 'package:edu_app/provider/theme_provider.dart';
-import 'package:edu_app/screens/main_screen/home_screens.dart';
+import 'package:edu_app/provider/user_provider.dart';
+import 'package:edu_app/provider/academic_provider.dart';
 import 'package:edu_app/theme/app_theme.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => UserProvider()),
+        ChangeNotifierProvider(create: (context) => AcademicProvider()),
+      ],
       child: const MyApp(),
     ),
   );

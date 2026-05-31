@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:edu_app/provider/academic_provider.dart';
 
 class AcademicInfo extends StatefulWidget {
   const AcademicInfo({super.key});
@@ -16,8 +18,16 @@ class _AcademicInfoState extends State<AcademicInfo> {
     "CEE Entrance Preparation",
   ];
 
-  String? selectedLevel = "Bachelor";
-  String? selectedCourse = "IOE Entrance Preparation";
+  String? selectedLevel;
+  String? selectedCourse;
+
+  @override
+  void initState() {
+    super.initState();
+    final academicProvider = context.read<AcademicProvider>();
+    selectedLevel = academicProvider.level;
+    selectedCourse = academicProvider.targetCourse;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +39,6 @@ class _AcademicInfoState extends State<AcademicInfo> {
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Theme.of(context).dividerColor),
       ),
-
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -40,27 +49,23 @@ class _AcademicInfoState extends State<AcademicInfo> {
               color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
           ),
-
           const SizedBox(height: 10),
-
           DropdownButtonFormField<String>(
             value: selectedLevel,
-
             decoration: _inputDecoration(context),
-
             items: levels.map((level) {
               return DropdownMenuItem(value: level, child: Text(level));
             }).toList(),
-
             onChanged: (value) {
-              setState(() {
-                selectedLevel = value;
-              });
+              if (value != null) {
+                setState(() {
+                  selectedLevel = value;
+                });
+                context.read<AcademicProvider>().updateLevel(value);
+              }
             },
           ),
-
           const SizedBox(height: 20),
-
           Text(
             "Target Course",
             style: TextStyle(
@@ -68,22 +73,20 @@ class _AcademicInfoState extends State<AcademicInfo> {
               color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
           ),
-
           const SizedBox(height: 10),
-
           DropdownButtonFormField<String>(
             value: selectedCourse,
-
             decoration: _inputDecoration(context),
-
             items: courses.map((course) {
               return DropdownMenuItem(value: course, child: Text(course));
             }).toList(),
-
             onChanged: (value) {
-              setState(() {
-                selectedCourse = value;
-              });
+              if (value != null) {
+                setState(() {
+                  selectedCourse = value;
+                });
+                context.read<AcademicProvider>().updateTargetCourse(value);
+              }
             },
           ),
         ],
@@ -94,12 +97,10 @@ class _AcademicInfoState extends State<AcademicInfo> {
   InputDecoration _inputDecoration(BuildContext context) {
     return InputDecoration(
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(color: Theme.of(context).dividerColor),
       ),
-
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 2),

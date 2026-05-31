@@ -1,5 +1,6 @@
-import 'package:edu_app/data/seetings_data.dart';
+import 'package:edu_app/provider/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PersonalInfo extends StatefulWidget {
   const PersonalInfo({super.key});
@@ -9,20 +10,32 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State<PersonalInfo> {
-  final TextEditingController _nameController = TextEditingController(
-    text: personalInfoModels.name,
-  );
-  DateTime _selectedDate = DateTime.now();
-  late final TextEditingController
-  _dateOfJoinController = TextEditingController(
-    text:
-        "${DateTime.now().day.toString().padLeft(2, '0')}/${DateTime.now().month.toString().padLeft(2, '0')}/${DateTime.now().year}",
-  );
+  late TextEditingController _nameController;
+  late TextEditingController _dateOfJoinController;
+
+  late DateTime _selectedDate;
+
+  @override
+  void initState() {
+    super.initState();
+    final userProvider = context.read<UserProvider>();
+    _selectedDate = userProvider.joinedDate;
+    _nameController = TextEditingController(text: userProvider.fullName);
+    _dateOfJoinController = TextEditingController(
+      text:
+          "${_selectedDate.day.toString().padLeft(2, '0')}/"
+          "${_selectedDate.month.toString().padLeft(2, '0')}/"
+          "${_selectedDate.year}",
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final userProvider = context.watch<UserProvider>();
+
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.only(right: 18),
+      margin: const EdgeInsets.all(18),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
@@ -32,120 +45,68 @@ class _PersonalInfoState extends State<PersonalInfo> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Full Name",
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              color: Theme.of(context).textTheme.bodyLarge?.color,
-            ),
+            style: TextStyle(fontWeight: FontWeight.w500),
           ),
+
           const SizedBox(height: 5),
+
           TextField(
             controller: _nameController,
+            onChanged: (value) {
+              userProvider.updateName(value);
+            },
             decoration: InputDecoration(
               hintText: "Enter your full name",
-              hintStyle: TextStyle(
-                color: Theme.of(
-                  context,
-                ).textTheme.bodyLarge?.color?.withValues(alpha: 0.6),
-              ),
-
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
+            ),
+          ),
 
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: Theme.of(context).dividerColor),
-              ),
+          const SizedBox(height: 20),
 
-              focusedBorder: OutlineInputBorder(
+          const Text(
+            "Joined Date",
+            style: TextStyle(fontWeight: FontWeight.w500),
+          ),
+
+          const SizedBox(height: 5),
+
+          TextField(
+            controller: _dateOfJoinController,
+            readOnly: true,
+            onTap: () async {
+              final picked = await showDatePicker(
+                context: context,
+                initialDate: _selectedDate,
+                firstDate: DateTime(2024),
+                lastDate: DateTime.now(),
+              );
+
+              if (picked != null) {
+                setState(() {
+                  _selectedDate = picked;
+
+                  _dateOfJoinController.text =
+                      "${picked.day.toString().padLeft(2, '0')}/"
+                      "${picked.month.toString().padLeft(2, '0')}/"
+                      "${picked.year}";
+                });
+
+                userProvider.updateJoinedDate(picked);
+              }
+            },
+            decoration: InputDecoration(
+              suffixIcon: const Icon(Icons.calendar_today_outlined),
+              border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(
-                  color: Theme.of(context).dividerColor,
-                  width: 2,
-                ),
               ),
             ),
           ),
-          const SizedBox(height: 5),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Date of Join",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Theme.of(context).textTheme.bodyLarge?.color,
-                ),
-              ),
-              const SizedBox(height: 5),
-              TextField(
-                controller: _dateOfJoinController,
-                readOnly: true,
-                onTap: () async {
-                  final picked = await showDatePicker(
-                    context: context,
-                    initialDate: _selectedDate,
-                    firstDate: DateTime(2024),
-                    lastDate: DateTime.now(),
-                  );
-                  if (picked != null) {
-                    setState(() {
-                      _selectedDate = picked;
-                      _dateOfJoinController.text =
-                          "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
-                    });
-                  }
-                },
-                decoration: InputDecoration(
-                  hintText: "Enter your date of join",
-                  hintStyle: TextStyle(
-                    color: Theme.of(
-                      context,
-                    ).textTheme.bodyLarge?.color?.withOpacity(0.6),
-                  ),
-                  suffixIcon: IconButton(
-                    onPressed: () async {
-                      final picked = await showDatePicker(
-                        context: context,
-                        initialDate: _selectedDate,
-                        firstDate: DateTime(1950),
-                        lastDate: DateTime.now(),
-                      );
-                      if (picked != null) {
-                        setState(() {
-                          _selectedDate = picked;
-                          _dateOfJoinController.text =
-                              "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
-                        });
-                      }
-                    },
-                    icon: Icon(Icons.calendar_today_outlined),
-                  ),
 
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: Theme.of(context).dividerColor,
-                    ),
-                  ),
-
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(
-                      color: Theme.of(context).dividerColor,
-                      width: 2,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          const SizedBox(height: 20),
         ],
       ),
     );

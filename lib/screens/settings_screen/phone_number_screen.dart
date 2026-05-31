@@ -1,6 +1,7 @@
 import 'package:edu_app/data/phone_nunmber_data.dart';
 import 'package:edu_app/data/otp_data.dart';
 import 'package:edu_app/widgets/seetings_widgets/change_phonenumber_widgets/otp_card.dart';
+import 'package:edu_app/widgets/seetings_widgets/change_phonenumber_widgets/phone_number_buttons.dart';
 import 'package:edu_app/widgets/seetings_widgets/change_phonenumber_widgets/phone_numbers_card.dart';
 import 'package:flutter/material.dart';
 
@@ -39,6 +40,8 @@ class PhoneNumberScreen extends StatelessWidget {
               PhoneNumbersCard(phoneNumber: phoneNumberCard),
               const SizedBox(height: 20),
               OtpCard(otp: otpCard),
+              const SizedBox(height: 40),
+              PhoneNumberButtons(),
             ],
           ),
         ),

@@ -75,7 +75,7 @@ class EditProfileScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 PersonalInfo(),
-                const SizedBox(height: 18),
+                const SizedBox(height: 10),
                 Text(
                   "Academic Information",
                   style: TextStyle(
@@ -86,6 +86,52 @@ class EditProfileScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 AcademicInfo(),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).primaryColor,
+                      foregroundColor: Theme.of(
+                        context,
+                      ).scaffoldBackgroundColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    onPressed: () async {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            "Profile updated successfully",
+                            style: TextStyle(
+                              color: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.color,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          backgroundColor: Theme.of(context).primaryColor,
+                          behavior: SnackBarBehavior.floating,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      );
+                      await Future.delayed(const Duration(seconds: 1));
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      "Update Profile",
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:edu_app/data/detailed_analysis_data.dart';
+import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:edu_app/widgets/detailed_analysis_widgets.dart/growth_path_card.dart';
 import 'package:edu_app/widgets/detailed_analysis_widgets.dart/performance_break_down.dart';
 import 'package:edu_app/widgets/detailed_analysis_widgets.dart/recomended_focus_card.dart';
@@ -16,6 +17,7 @@ class _DetailedAnalysisState extends State<DetailedAnalysis> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomNavBar(currentIndex: 1),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

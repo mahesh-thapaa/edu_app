@@ -1,4 +1,5 @@
 import 'package:edu_app/auth/signin_page/signin_page.dart';
+import 'package:edu_app/screens/main_screen/home_screens.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -154,7 +155,12 @@ class _LoginWidgetsState extends State<LoginWidgets> {
             width: double.infinity,
             height: 52,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreens()),
+                );
+              },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(
                   Theme.of(context).primaryColor,

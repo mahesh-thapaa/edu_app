@@ -7,6 +7,7 @@ import 'package:edu_app/components/questions/widgets/selected_options.dart';
 import 'package:edu_app/data/component_data.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:edu_app/widgets/top_bar.dart';
+import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsScreen extends StatefulWidget {
@@ -65,6 +66,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         : '';
 
     return Scaffold(
+      bottomNavigationBar: const BottomNavBar(currentIndex: 1),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

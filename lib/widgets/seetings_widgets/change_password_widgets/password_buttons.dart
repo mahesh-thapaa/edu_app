@@ -23,11 +23,7 @@ class PasswordButtons extends StatelessWidget {
             onPressed: () {},
             child: const Text(
               "Cancel",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                // color: AppColors.buttonColorLight,
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
           ),
         ),
@@ -45,8 +41,25 @@ class PasswordButtons extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
               ),
             ),
-            onPressed: () {},
-            child: const Text(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    "Password Updated",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
+                    ),
+                  ),
+                  backgroundColor: Theme.of(context).primaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              );
+              Navigator.of(context).pop();
+            },
+            child: Text(
               "Update",
               style: TextStyle(
                 fontSize: 18,

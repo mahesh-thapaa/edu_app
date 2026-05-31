@@ -1,8 +1,8 @@
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class EmailButtons extends StatelessWidget {
-  const EmailButtons({super.key});
+class PhoneNumberButtons extends StatelessWidget {
+  const PhoneNumberButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class EmailButtons extends StatelessWidget {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text(
-                    "Verify your email",
+                    "Verify your number",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).textTheme.bodyLarge?.color,

@@ -1,4 +1,5 @@
 import 'package:edu_app/data/subject_analysis_data.dart';
+import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:edu_app/widgets/subject_wise_analysis_widgets/questions_analysis_card.dart';
 import 'package:edu_app/widgets/subject_wise_analysis_widgets/subject_analysis_card.dart';
 import 'package:edu_app/widgets/subject_wise_analysis_widgets/topic_performance_card.dart';
@@ -15,6 +16,7 @@ class _SubjectWiseAnalysisState extends State<SubjectWiseAnalysis> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomNavBar(currentIndex: 1),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

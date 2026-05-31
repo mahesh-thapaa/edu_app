@@ -21,85 +21,91 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: Icon(
-                      Icons.arrow_back,
-                      color: Theme.of(context).textTheme.bodyLarge?.color,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 100),
-                  Text(
-                    "Settings",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: Theme.of(context).textTheme.bodyLarge?.color,
+                    const SizedBox(width: 100),
+                    Text(
+                      "Settings",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
+                  ],
+                ),
+                const SizedBox(height: 20),
 
-              AccountCard(
-                onEditProfileTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => const EditProfileScreen(),
-                    ),
-                  );
-                },
-                onChangePasswordTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => const ChangePasswordScreen(),
-                    ),
-                  );
-                },
-                onEmailTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const EmailScreen()),
-                  );
-                },
-                onPhoneNumberTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => const PhoneNumberScreen(),
-                    ),
-                  );
-                },
-              ),
-              const SizedBox(height: 20),
-              StudyCard(
-                onDailyGoalTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const DailyGoalScreen()),
-                  );
-                },
-                onStudyTimerTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => const StudyRemainderScreen(),
-                    ),
-                  );
-                },
-                onPreferredCoursesTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const PreferredScreens()),
-                  );
-                },
-              ),
-            ],
+                AccountCard(
+                  onEditProfileTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const EditProfileScreen(),
+                      ),
+                    );
+                  },
+                  onChangePasswordTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const ChangePasswordScreen(),
+                      ),
+                    );
+                  },
+                  onEmailTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const EmailScreen()),
+                    );
+                  },
+                  onPhoneNumberTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const PhoneNumberScreen(),
+                      ),
+                    );
+                  },
+                ),
+                const SizedBox(height: 20),
+                StudyCard(
+                  onDailyGoalTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const DailyGoalScreen(),
+                      ),
+                    );
+                  },
+                  onStudyTimerTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const StudyRemainderScreen(),
+                      ),
+                    );
+                  },
+                  onPreferredCoursesTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const PreferredScreens(),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

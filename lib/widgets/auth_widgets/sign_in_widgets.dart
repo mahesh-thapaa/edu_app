@@ -2,6 +2,8 @@ import 'package:edu_app/auth/login_page/login_page.dart';
 import 'package:edu_app/screens/main_screen/home_screens.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:edu_app/provider/user_provider.dart';
 
 class SignInWidgets extends StatefulWidget {
   const SignInWidgets({super.key});
@@ -21,6 +23,8 @@ class _SignInWidgetsState extends State<SignInWidgets> {
   bool isPasswordVisible = false;
   bool isConfirmPasswordVisible = false;
 
+  DateTime _selectedJoinedDate = DateTime.now();
+
   Future<void> _selectDate() async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -31,6 +35,7 @@ class _SignInWidgetsState extends State<SignInWidgets> {
 
     if (pickedDate != null) {
       setState(() {
+        _selectedJoinedDate = pickedDate;
         dojController.text =
             "${pickedDate.day.toString().padLeft(2, '0')}/"
             "${pickedDate.month.toString().padLeft(2, '0')}/"
@@ -103,12 +108,20 @@ class _SignInWidgetsState extends State<SignInWidgets> {
       return;
     }
 
-    // API Call Here
+    // Update UserProvider with entered info
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    userProvider.updateName(fullNameController.text.trim());
+    userProvider.updateEmail(emailController.text.trim());
+    userProvider.updateJoinedDate(_selectedJoinedDate);
 
-    print(fullNameController.text);
-    print(emailController.text);
-    print(dojController.text);
-    print(passwordController.text);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return const HomeScreens();
+        },
+      ),
+    );
   }
 
   @override
@@ -201,7 +214,7 @@ class _SignInWidgetsState extends State<SignInWidgets> {
             const SizedBox(height: 20),
 
             customTextField(
-              label: "Date of Join",
+              label: "Joined Date",
               hint: "18/03/2024",
               controller: dojController,
               readOnly: true,
@@ -259,16 +272,7 @@ class _SignInWidgetsState extends State<SignInWidgets> {
               height: 55,
 
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return HomeScreens();
-                      },
-                    ),
-                  );
-                },
+                onPressed: signUp,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).primaryColor,
                   foregroundColor: AppColors.backgroundlight,
