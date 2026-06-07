@@ -1,36 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ThemeProvider extends ChangeNotifier with WidgetsBindingObserver {
-  bool? _userOverride;
+class ThemeProvider extends ChangeNotifier {
+  bool _isDarkMode = false;
 
-  ThemeProvider() {
-    WidgetsBinding.instance.addObserver(this);
-  }
-  bool get isDarkMode {
-    if (_userOverride != null) {
-      return _userOverride!;
-    }
-    final systemBrightness =
-        WidgetsBinding.instance.platformDispatcher.platformBrightness;
-    return systemBrightness == Brightness.dark;
-  }
+  bool get isDarkMode => _isDarkMode;
 
-  ThemeMode get themeMode => isDarkMode ? ThemeMode.dark : ThemeMode.light;
+  ThemeMode get themeMode => _isDarkMode ? ThemeMode.dark : ThemeMode.light;
 
   void toggleTheme() {
-    _userOverride = !isDarkMode;
+    _isDarkMode = !_isDarkMode;
     notifyListeners();
-  }
-
-  @override
-  void didChangePlatformBrightness() {
-    _userOverride = null;
-    notifyListeners();
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
   }
 }

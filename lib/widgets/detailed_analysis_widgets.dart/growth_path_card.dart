@@ -8,15 +8,14 @@ class GrowthPathCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        color: theme.cardColor,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: theme.dividerColor, width: 1.5),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 1.5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,7 +25,7 @@ class GrowthPathCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
-              color: theme.textTheme.bodyLarge?.color,
+              color: Theme.of(context).textTheme.bodyLarge?.color,
             ),
           ),
           const SizedBox(height: 12),
@@ -36,8 +35,8 @@ class GrowthPathCard extends StatelessWidget {
               _GrowthScore(
                 title: 'Last Test',
                 value: '${data.lastTestPercent}%',
-                titleColor: theme.textTheme.bodySmall?.color,
-                valueColor: theme.textTheme.bodyLarge?.color,
+                titleColor: Theme.of(context).textTheme.bodySmall?.color,
+                valueColor: Theme.of(context).textTheme.bodyLarge?.color,
                 alignEnd: false,
               ),
               const SizedBox(width: 12),
@@ -47,7 +46,7 @@ class GrowthPathCard extends StatelessWidget {
                     Expanded(
                       child: Divider(
                         thickness: 1,
-                        color: theme.dividerColor,
+                        color: Theme.of(context).dividerColor,
                         height: 1,
                       ),
                     ),
@@ -58,7 +57,7 @@ class GrowthPathCard extends StatelessWidget {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: theme.primaryColor,
+                        color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.circular(999),
                       ),
                       child: Text(
@@ -73,7 +72,7 @@ class GrowthPathCard extends StatelessWidget {
                     Expanded(
                       child: Divider(
                         thickness: 1,
-                        color: theme.dividerColor,
+                        color: Theme.of(context).dividerColor,
                         height: 1,
                       ),
                     ),
@@ -84,8 +83,8 @@ class GrowthPathCard extends StatelessWidget {
               _GrowthScore(
                 title: 'Current',
                 value: '${data.currentPercent}%',
-                titleColor: theme.primaryColor,
-                valueColor: theme.primaryColor,
+                titleColor: Theme.of(context).primaryColor,
+                valueColor: Theme.of(context).primaryColor,
                 alignEnd: true,
               ),
             ],
@@ -98,7 +97,7 @@ class GrowthPathCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
-                color: theme.textTheme.bodyLarge?.color,
+                color: Theme.of(context).textTheme.bodyLarge?.color,
               ),
             ),
           ),

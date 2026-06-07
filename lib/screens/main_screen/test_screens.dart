@@ -22,7 +22,7 @@ class TestScreens extends StatelessWidget {
 
               // const SizedBox(height: 2),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   children: [
                     Text(
@@ -51,7 +51,7 @@ class TestScreens extends StatelessWidget {
               ),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   'Choose your preferred\nentrance preparation category.',
                   style: TextStyle(
@@ -73,40 +73,6 @@ class TestScreens extends StatelessWidget {
                   ),
                 ),
               ),
-              // const SizedBox(height: 15),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 20),
-              //   child: Row(
-              //     children: [
-              //       Text(
-              //         "Continue Your Last Activity",
-              //         style: TextStyle(
-              //           fontSize: 18,
-              //           fontWeight: FontWeight.w600,
-              //           color: Theme.of(context).textTheme.bodyLarge?.color,
-              //         ),
-              //       ),
-              //       Spacer(),
-
-              //       GestureDetector(
-              //         onTap: () {},
-              //         child: Text(
-              //           "View All",
-              //           style: TextStyle(
-              //             color: Theme.of(context).primaryColor,
-              //             fontSize: 16,
-              //             fontWeight: FontWeight.bold,
-              //           ),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // SizedBox(height: 15),
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 16),
-              //   child: MockTestCard(mockTests: mockTests),
-              // ),
             ],
           ),
         ),

@@ -24,7 +24,7 @@ class ResultsScreen extends StatelessWidget {
               const TopBar(),
               const SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   children: [
                     Text(
@@ -82,7 +82,7 @@ class ResultsScreen extends StatelessWidget {
               ResultCard(result: result),
               const SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Container(
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(
@@ -127,7 +127,7 @@ class ResultsScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   children: [
                     Text(
@@ -166,7 +166,6 @@ class ResultsScreen extends StatelessWidget {
           ),
         ),
 
-        // const SizedBox(height: 20),
       ),
     );
   }

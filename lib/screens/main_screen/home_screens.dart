@@ -22,7 +22,7 @@ class HomeScreens extends StatelessWidget {
               const TopBar(),
               const SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   children: [
                     Text(

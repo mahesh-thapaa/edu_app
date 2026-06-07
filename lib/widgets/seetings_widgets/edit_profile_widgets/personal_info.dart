@@ -35,7 +35,6 @@ class _PersonalInfoState extends State<PersonalInfo> {
 
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.all(18),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,

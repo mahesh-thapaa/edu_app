@@ -24,7 +24,7 @@ class ProfileScreens extends StatelessWidget {
               const TopBar(),
               const SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   "My Profile",
                   style: TextStyle(

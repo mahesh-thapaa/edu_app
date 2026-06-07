@@ -1,3 +1,4 @@
+import 'package:edu_app/screens/main_screen/results_screen.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,9 @@ class _SubmitButtonsState extends State<SubmitButtons> {
                 ),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             child: Text(
               "Continue Exam",
               style: TextStyle(
@@ -51,7 +54,12 @@ class _SubmitButtonsState extends State<SubmitButtons> {
                 borderRadius: BorderRadius.circular(18),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ResultsScreen()),
+              );
+            },
             child: Text(
               "Submit Test",
               style: TextStyle(

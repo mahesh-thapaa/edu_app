@@ -1,3 +1,4 @@
+import 'package:edu_app/theme/app_colors.dart';
 import 'package:edu_app/widgets/seetings_widgets/daily_goal_widgets/daily_study_card.dart';
 import 'package:flutter/material.dart';
 
@@ -17,14 +18,12 @@ class _DailyGoalScreenState extends State<DailyGoalScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -34,7 +33,7 @@ class _DailyGoalScreenState extends State<DailyGoalScreen> {
                       onPressed: () => Navigator.of(context).pop(),
                       icon: Icon(
                         Icons.arrow_back,
-                        color: theme.textTheme.bodyLarge?.color,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                     const Spacer(),
@@ -43,7 +42,7 @@ class _DailyGoalScreenState extends State<DailyGoalScreen> {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
-                        color: theme.textTheme.bodyLarge?.color,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                     const Spacer(flex: 2),
@@ -84,7 +83,7 @@ class _DailyGoalScreenState extends State<DailyGoalScreen> {
                       Navigator.of(context).pop();
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: theme.primaryColor,
+                      backgroundColor: Theme.of(context).primaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -93,7 +92,7 @@ class _DailyGoalScreenState extends State<DailyGoalScreen> {
                     child: Text(
                       'Save Goal',
                       style: TextStyle(
-                        color: theme.textTheme.bodyLarge?.color,
+                        color: AppColors.backgroundlight,
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),

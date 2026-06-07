@@ -8,8 +8,6 @@ class RecomendedFocusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -18,7 +16,7 @@ class RecomendedFocusCard extends StatelessWidget {
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w600,
-            color: theme.textTheme.bodyLarge?.color,
+            color: Theme.of(context).textTheme.bodyLarge?.color,
           ),
         ),
         const SizedBox(height: 12),
@@ -37,9 +35,12 @@ class RecomendedFocusCard extends StatelessWidget {
                   vertical: 12,
                 ),
                 decoration: BoxDecoration(
-                  color: theme.cardColor,
+                  color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(14),
-                  border: Border.all(color: theme.dividerColor, width: 1.5),
+                  border: Border.all(
+                    color: Theme.of(context).dividerColor,
+                    width: 1.5,
+                  ),
                 ),
                 child: Row(
                   children: [
@@ -52,7 +53,9 @@ class RecomendedFocusCard extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
-                              color: theme.textTheme.bodyLarge?.color,
+                              color: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.color,
                             ),
                           ),
                           const SizedBox(height: 2),
@@ -60,17 +63,14 @@ class RecomendedFocusCard extends StatelessWidget {
                             item.focusText,
                             style: TextStyle(
                               fontSize: 12,
-                              color: theme.textTheme.bodyLarge?.color,
+                              color: Theme.of(
+                                context,
+                              ).textTheme.bodyLarge?.color,
                             ),
                           ),
                         ],
                       ),
                     ),
-                    // Icon(
-                    //   Icons.chevron_right_rounded,
-                    //   color: theme.textTheme.bodyMedium?.color,
-                    //   size: 26,
-                    // ),
                   ],
                 ),
               ),

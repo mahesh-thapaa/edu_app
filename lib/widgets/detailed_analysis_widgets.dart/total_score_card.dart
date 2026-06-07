@@ -9,8 +9,6 @@ class TotalScoreCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final headlineColor = theme.textTheme.bodyLarge?.color;
 
     return Center(
       child: Padding(
@@ -25,7 +23,7 @@ class TotalScoreCard extends StatelessWidget {
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
                 letterSpacing: 0.8,
-                color: theme.textTheme.bodySmall?.color,
+                color: Theme.of(context).textTheme.bodySmall?.color,
               ),
             ),
             const SizedBox(height: 4),
@@ -38,7 +36,7 @@ class TotalScoreCard extends StatelessWidget {
                       fontSize: 78,
                       height: 0.95,
                       fontWeight: FontWeight.w400,
-                      color: theme.primaryColor,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ),
                   TextSpan(
@@ -46,7 +44,7 @@ class TotalScoreCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w500,
-                      color: headlineColor,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
                     ),
                   ),
                 ],
@@ -59,7 +57,7 @@ class TotalScoreCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w500,
-                color: theme.textTheme.bodyLarge?.color,
+                color: Theme.of(context).textTheme.bodyLarge?.color,
                 height: 1.05,
               ),
             ),
@@ -67,11 +65,11 @@ class TotalScoreCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color: theme.primaryColor,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(999),
                 boxShadow: [
                   BoxShadow(
-                    color: theme.primaryColor.withOpacity(0.35),
+                    color: Theme.of(context).primaryColor.withValues(alpha: 0.35),
                     blurRadius: 8,
                     offset: const Offset(0, 3),
                   ),

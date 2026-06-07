@@ -8,8 +8,6 @@ class PerformanceBreakDown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -18,7 +16,7 @@ class PerformanceBreakDown extends StatelessWidget {
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w600,
-            color: theme.textTheme.bodyLarge?.color,
+            color: Theme.of(context).textTheme.bodyLarge?.color,
           ),
         ),
         const SizedBox(height: 14),
@@ -32,7 +30,7 @@ class PerformanceBreakDown extends StatelessWidget {
           children: [
             _MetricTile(
               icon: Icons.adjust_rounded,
-              iconColor: const Color(0xFF2563EB),
+              iconColor: Theme.of(context).primaryColor,
               title: 'ACCURACY',
               value: '${data.accuracy.toStringAsFixed(1)}%',
             ),
@@ -50,7 +48,7 @@ class PerformanceBreakDown extends StatelessWidget {
             ),
             _MetricTile(
               icon: Icons.bar_chart_rounded,
-              iconColor: const Color(0xFF2563EB),
+              iconColor: Theme.of(context).primaryColor,
               title: 'IMPROVEMENT',
               value:
                   '${data.previousImprovement}% -> ${data.currentImprovement}%',
@@ -98,14 +96,13 @@ class _MetricTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
 
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: theme.cardColor,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: theme.dividerColor, width: 1.5),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 1.5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +116,7 @@ class _MetricTile extends StatelessWidget {
               fontSize: 12,
               fontWeight: FontWeight.w600,
               letterSpacing: 1,
-              color: theme.textTheme.bodySmall?.color,
+              color: Theme.of(context).textTheme.bodySmall?.color,
             ),
           ),
           const SizedBox(height: 4),
@@ -133,7 +130,7 @@ class _MetricTile extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
-                  color: theme.textTheme.bodyLarge?.color,
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
                 ),
               ),
             ),

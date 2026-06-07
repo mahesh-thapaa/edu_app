@@ -1,5 +1,6 @@
 import 'package:edu_app/screens/main_screen/home_screens.dart';
 import 'package:edu_app/models/navbar_items_models.dart';
+import 'package:edu_app/screens/main_screen/leaderboard_screen.dart';
 import 'package:edu_app/screens/main_screen/profile_screens.dart';
 import 'package:edu_app/screens/main_screen/results_screen.dart';
 import 'package:edu_app/screens/main_screen/test_screens.dart';
@@ -14,7 +15,7 @@ class BottomNavBar extends StatelessWidget {
     NavbarItemsModels(icon: Icons.home_rounded, label: "Home"),
     NavbarItemsModels(icon: Icons.assignment_outlined, label: "Tests"),
     NavbarItemsModels(icon: Icons.trending_up_rounded, label: "Results"),
-    NavbarItemsModels(icon: Icons.person_outline_rounded, label: "Profile"),
+    NavbarItemsModels(icon: Icons.bar_chart, label: "Laderboard"),
   ];
 
   PageRouteBuilder<void> _noAnimationRoute(Widget page) {
@@ -56,7 +57,7 @@ class BottomNavBar extends StatelessWidget {
     if (itemIndex == 3) {
       Navigator.pushReplacement(
         context,
-        _noAnimationRoute(const ProfileScreens()),
+        _noAnimationRoute(const LeaderboardScreen()),
       );
     }
   }

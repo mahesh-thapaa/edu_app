@@ -1,3 +1,4 @@
+import 'package:edu_app/screens/main_screen/profile_screens.dart';
 import 'package:flutter/material.dart';
 
 class TopBar extends StatelessWidget {
@@ -17,14 +18,32 @@ class TopBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Text("", style: TextStyle(fontSize: 1)),
               const CircleAvatar(radius: 20, child: Text("")),
               const Spacer(),
-              IconButton(
-                onPressed: () {
-                  print("Notification Icon Presses");
-                },
-                icon: const Icon(Icons.notifications),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProfileScreens(),
+                        ),
+                      );
+                    },
+                    child: const CircleAvatar(
+                      radius: 20,
+                      child: Icon(Icons.people),
+                    ),
+                  ),
+                  // const SizedBox(width: 5),
+                  // IconButton(
+                  //   onPressed: () {
+                  //     print("Notification Icon Presses");
+                  //   },
+                  //   icon: const Icon(Icons.notifications),
+                  // ),
+                ],
               ),
             ],
           ),
