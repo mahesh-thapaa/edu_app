@@ -1,4 +1,4 @@
-import 'package:edu_app/models/profile_models.dart/profile_card_models.dart';
+import 'package:edu_app/models/profile_models/profile_card_models.dart';
 
 final ProfileCardModels profileCard = ProfileCardModels(
   userName: "Mahesh Thapa Magar",

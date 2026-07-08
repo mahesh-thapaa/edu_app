@@ -1,4 +1,4 @@
-import 'package:edu_app/models/detailed_analysis_models.dart/growth_path_models.dart';
+import 'package:edu_app/models/detailed_analysis_models/growth_path_models.dart';
 import 'package:flutter/material.dart';
 
 class GrowthPathCard extends StatelessWidget {

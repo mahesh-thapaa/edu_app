@@ -1,4 +1,4 @@
-import 'package:edu_app/models/leaderboard_models.dart/current_rank_models.dart';
+import 'package:edu_app/models/leaderboard_models/current_rank_models.dart';
 
 CurrentRankModels currentRankData = CurrentRankModels(
   currentRank: 92,

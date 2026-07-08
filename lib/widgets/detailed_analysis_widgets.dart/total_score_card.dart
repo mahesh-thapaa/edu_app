@@ -1,4 +1,4 @@
-import 'package:edu_app/models/detailed_analysis_models.dart/total_score_models.dart';
+import 'package:edu_app/models/detailed_analysis_models/total_score_models.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 

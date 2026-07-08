@@ -1,6 +1,6 @@
-import 'package:edu_app/models/result_models.dart/result_card_models.dart';
-import 'package:edu_app/models/result_models.dart/score_card_models.dart';
-import 'package:edu_app/models/result_models.dart/subject_performance_models.dart';
+import 'package:edu_app/models/result_models/result_card_models.dart';
+import 'package:edu_app/models/result_models/score_card_models.dart';
+import 'package:edu_app/models/result_models/subject_performance_models.dart';
 import 'package:flutter/material.dart';
 
 final ResultCardModels result = ResultCardModels(

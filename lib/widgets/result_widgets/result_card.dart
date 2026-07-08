@@ -1,4 +1,4 @@
-import 'package:edu_app/models/result_models.dart/result_card_models.dart';
+import 'package:edu_app/models/result_models/result_card_models.dart';
 import 'package:flutter/material.dart';
 
 class ResultCard extends StatelessWidget {

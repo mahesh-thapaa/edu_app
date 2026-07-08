@@ -1,7 +1,7 @@
-import 'package:edu_app/models/detailed_analysis_models.dart/growth_path_models.dart';
-import 'package:edu_app/models/detailed_analysis_models.dart/performance_breakdown_models.dart';
-import 'package:edu_app/models/detailed_analysis_models.dart/recommended_focus_models.dart';
-import 'package:edu_app/models/detailed_analysis_models.dart/total_score_models.dart';
+import 'package:edu_app/models/detailed_analysis_models/growth_path_models.dart';
+import 'package:edu_app/models/detailed_analysis_models/performance_breakdown_models.dart';
+import 'package:edu_app/models/detailed_analysis_models/recommended_focus_models.dart';
+import 'package:edu_app/models/detailed_analysis_models/total_score_models.dart';
 import 'package:flutter/material.dart';
 
 final TotalScoreModels totalScore = TotalScoreModels(

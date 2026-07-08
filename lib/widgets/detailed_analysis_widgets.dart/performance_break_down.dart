@@ -1,4 +1,4 @@
-import 'package:edu_app/models/detailed_analysis_models.dart/performance_breakdown_models.dart';
+import 'package:edu_app/models/detailed_analysis_models/performance_breakdown_models.dart';
 import 'package:flutter/material.dart';
 
 class PerformanceBreakDown extends StatelessWidget {

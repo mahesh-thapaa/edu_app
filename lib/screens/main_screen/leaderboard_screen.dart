@@ -1,3 +1,4 @@
+import 'package:edu_app/widgets/bottom_navbar.dart';
 import 'package:edu_app/widgets/leaderboard_widgets.dart/current_rank.dart';
 import 'package:edu_app/widgets/top_bar.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      bottomNavigationBar: const BottomNavBar(currentIndex: 4),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

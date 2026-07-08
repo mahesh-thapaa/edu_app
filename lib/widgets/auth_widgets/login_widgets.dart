@@ -14,6 +14,12 @@ class _LoginWidgetsState extends State<LoginWidgets> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool rememberMe = false;
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,12 +69,6 @@ class _LoginWidgetsState extends State<LoginWidgets> {
                     MaterialPageRoute(builder: (context) => const SigninPage()),
                   );
                 },
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  minimumSize: Size.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  visualDensity: VisualDensity.compact,
-                ),
                 child: Text(
                   "Sign Up",
                   style: TextStyle(
@@ -134,11 +134,6 @@ class _LoginWidgetsState extends State<LoginWidgets> {
               ),
               TextButton(
                 onPressed: () {},
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.zero,
-                  minimumSize: Size.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
                 child: Text(
                   'Forgot Password ?',
                   style: TextStyle(
@@ -161,21 +156,13 @@ class _LoginWidgetsState extends State<LoginWidgets> {
                   MaterialPageRoute(builder: (context) => const HomeScreens()),
                 );
               },
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Theme.of(context).primaryColor,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).primaryColor,
+                foregroundColor: AppColors.backgroundlight,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                foregroundColor: MaterialStateProperty.all(
-                  AppColors.backgroundlight,
-                ),
-                shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(999),
-                  ),
-                ),
-                elevation: MaterialStateProperty.all(0),
-                shadowColor: MaterialStateProperty.all(Colors.transparent),
-                overlayColor: MaterialStateProperty.all(Colors.transparent),
+                elevation: 0,
               ),
               child: const Text(
                 'Log In',
@@ -239,13 +226,7 @@ class _LoginWidgetsState extends State<LoginWidgets> {
 
     return InputDecoration(
       hintText: hintText,
-      hintStyle: TextStyle(
-        fontSize: 14,
-        color: theme.textTheme.bodyLarge?.color?.withValues(alpha: 0.55),
-      ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      filled: true,
-      fillColor: theme.cardColor,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(color: theme.dividerColor, width: 1.2),
@@ -253,10 +234,6 @@ class _LoginWidgetsState extends State<LoginWidgets> {
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide(color: theme.dividerColor, width: 1.2),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: theme.primaryColor, width: 1.4),
       ),
     );
   }

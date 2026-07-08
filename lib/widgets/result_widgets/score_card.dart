@@ -1,4 +1,4 @@
-import 'package:edu_app/models/result_models.dart/score_card_models.dart';
+import 'package:edu_app/models/result_models/score_card_models.dart';
 import 'package:flutter/material.dart';
 
 class ScoreCard extends StatelessWidget {

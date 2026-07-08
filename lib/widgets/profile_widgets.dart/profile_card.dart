@@ -1,4 +1,4 @@
-import 'package:edu_app/models/profile_models.dart/profile_card_models.dart';
+import 'package:edu_app/models/profile_models/profile_card_models.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:edu_app/provider/user_provider.dart';

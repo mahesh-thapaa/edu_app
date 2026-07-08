@@ -1,5 +1,5 @@
 import 'package:edu_app/data/leaderboard_data.dart';
-import 'package:edu_app/models/leaderboard_models.dart/current_rank_models.dart';
+import 'package:edu_app/models/leaderboard_models/current_rank_models.dart';
 import 'package:edu_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 

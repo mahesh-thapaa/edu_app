@@ -1,4 +1,4 @@
-import 'package:edu_app/models/detailed_analysis_models.dart/recommended_focus_models.dart';
+import 'package:edu_app/models/detailed_analysis_models/recommended_focus_models.dart';
 import 'package:flutter/material.dart';
 
 class RecomendedFocusCard extends StatelessWidget {
