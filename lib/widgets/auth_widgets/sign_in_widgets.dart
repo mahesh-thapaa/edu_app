@@ -13,11 +13,12 @@ class SignInWidgets extends StatefulWidget {
 }
 
 class _SignInWidgetsState extends State<SignInWidgets> {
-  final TextEditingController fullNameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController dojController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _dojController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
       TextEditingController();
 
   bool isPasswordVisible = false;
@@ -36,7 +37,7 @@ class _SignInWidgetsState extends State<SignInWidgets> {
     if (pickedDate != null) {
       setState(() {
         _selectedJoinedDate = pickedDate;
-        dojController.text =
+        _dojController.text =
             "${pickedDate.day.toString().padLeft(2, '0')}/"
             "${pickedDate.month.toString().padLeft(2, '0')}/"
             "${pickedDate.year}";
@@ -53,6 +54,7 @@ class _SignInWidgetsState extends State<SignInWidgets> {
     TextInputType keyboardType = TextInputType.text,
     VoidCallback? onTap,
     bool readOnly = false,
+    String? Function(String?)? validator,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,6 +73,7 @@ class _SignInWidgetsState extends State<SignInWidgets> {
           keyboardType: keyboardType,
           readOnly: readOnly,
           onTap: onTap,
+          validator: validator,
           decoration: InputDecoration(
             hintText: hint,
             suffixIcon: suffixIcon,
@@ -90,204 +93,225 @@ class _SignInWidgetsState extends State<SignInWidgets> {
   }
 
   void signUp() {
-    if (fullNameController.text.trim().isEmpty ||
-        emailController.text.trim().isEmpty ||
-        dojController.text.trim().isEmpty ||
-        passwordController.text.isEmpty ||
-        confirmPasswordController.text.isEmpty) {
-      ScaffoldMessenger.of(
+    if (_formKey.currentState!.validate()) {
+      final userProvider = Provider.of<UserProvider>(context, listen: false);
+      userProvider.updateName(_fullNameController.text.trim());
+      userProvider.updateEmail(_emailController.text.trim());
+      userProvider.updateJoinedDate(_selectedJoinedDate);
+      Navigator.push(
         context,
-      ).showSnackBar(const SnackBar(content: Text("Please fill all fields")));
-      return;
+        MaterialPageRoute(builder: (context) => const HomeScreens()),
+      );
     }
-
-    if (passwordController.text != confirmPasswordController.text) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text("Passwords do not match")));
-      return;
-    }
-
-    // Update UserProvider with entered info
-    final userProvider = Provider.of<UserProvider>(context, listen: false);
-    userProvider.updateName(fullNameController.text.trim());
-    userProvider.updateEmail(emailController.text.trim());
-    userProvider.updateJoinedDate(_selectedJoinedDate);
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return const HomeScreens();
-        },
-      ),
-    );
   }
+
 
   @override
   void dispose() {
-    fullNameController.dispose();
-    emailController.dispose();
-    dojController.dispose();
-    passwordController.dispose();
-    confirmPasswordController.dispose();
+    _fullNameController.dispose();
+    _emailController.dispose();
+    _dojController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Theme.of(context).dividerColor, width: 1.5),
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.pop(context),
-              icon: const Icon(Icons.arrow_back),
-            ),
-
-            const SizedBox(height: 20),
-
-            Text(
-              "Sign Up",
-              style: TextStyle(
-                fontSize: 24,
-                color: Theme.of(context).textTheme.bodyLarge?.color,
-                fontWeight: FontWeight.w600,
+    return Form(
+      key: _formKey,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Theme.of(context).dividerColor, width: 1.5),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(Icons.arrow_back),
               ),
-            ),
 
-            const SizedBox(height: 10),
+              const SizedBox(height: 20),
 
-            Row(
-              children: [
-                Text(
-                  "Already have an Account?",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Theme.of(context).textTheme.bodyLarge?.color,
-                  ),
+              Text(
+                "Sign Up",
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
+                  fontWeight: FontWeight.w600,
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const LoginPage()),
-                    );
-                  },
-                  child: Text(
-                    "Login",
+              ),
+
+              const SizedBox(height: 10),
+
+              Row(
+                children: [
+                  Text(
+                    "Already have an Account?",
                     style: TextStyle(
-                      color: Theme.of(context).primaryColor,
                       fontSize: 14,
-                      fontWeight: FontWeight.w700,
+                      color: Theme.of(context).textTheme.bodyLarge?.color,
                     ),
                   ),
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 25),
-
-            customTextField(
-              label: "Full Name",
-              hint: "Enter Your Username",
-              controller: fullNameController,
-            ),
-
-            const SizedBox(height: 20),
-
-            customTextField(
-              label: "Email",
-              hint: "example@gmail.com",
-              controller: emailController,
-              keyboardType: TextInputType.emailAddress,
-            ),
-
-            const SizedBox(height: 20),
-
-            customTextField(
-              label: "Joined Date",
-              hint: "18/03/2024",
-              controller: dojController,
-              readOnly: true,
-              onTap: _selectDate,
-              suffixIcon: IconButton(
-                onPressed: _selectDate,
-                icon: const Icon(Icons.calendar_today_outlined),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            customTextField(
-              label: "Password",
-              hint: "Enter Your Password",
-              controller: passwordController,
-              obscureText: !isPasswordVisible,
-              suffixIcon: IconButton(
-                onPressed: () {
-                  setState(() {
-                    isPasswordVisible = !isPasswordVisible;
-                  });
-                },
-                icon: Icon(
-                  isPasswordVisible ? Icons.visibility : Icons.visibility_off,
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            customTextField(
-              label: "Confirm Password",
-              hint: "Confirm Your Password",
-              controller: confirmPasswordController,
-              obscureText: !isConfirmPasswordVisible,
-              suffixIcon: IconButton(
-                onPressed: () {
-                  setState(() {
-                    isConfirmPasswordVisible = !isConfirmPasswordVisible;
-                  });
-                },
-                icon: Icon(
-                  isConfirmPasswordVisible
-                      ? Icons.visibility
-                      : Icons.visibility_off,
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 30),
-
-            SizedBox(
-              width: double.infinity,
-              height: 55,
-
-              child: ElevatedButton(
-                onPressed: signUp,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Theme.of(context).primaryColor,
-                  foregroundColor: AppColors.backgroundlight,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const LoginPage()),
+                      );
+                    },
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ),
-                  elevation: 0,
+                ],
+              ),
+
+              const SizedBox(height: 25),
+
+              customTextField(
+                label: "Full Name",
+                hint: "Enter Your Username",
+                controller: _fullNameController,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return "Name is required";
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 20),
+
+              customTextField(
+                label: "Email",
+                hint: "example@gmail.com",
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return "Email is required";
+                  }
+                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                    return "Please enter a valid email address";
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 20),
+
+              customTextField(
+                label: "Joined Date",
+                hint: "18/03/2024",
+                controller: _dojController,
+                readOnly: true,
+                onTap: _selectDate,
+                suffixIcon: IconButton(
+                  onPressed: _selectDate,
+                  icon: const Icon(Icons.calendar_today_outlined),
                 ),
-                child: const Text(
-                  "Register",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please pick a date";
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 20),
+
+              customTextField(
+                label: "Password",
+                hint: "Enter Your Password",
+                controller: _passwordController,
+                obscureText: !isPasswordVisible,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isPasswordVisible = !isPasswordVisible;
+                    });
+                  },
+                  icon: Icon(
+                    isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Password is required";
+                  }
+                  if (value.length < 6) {
+                    return "Password must be at least 6 characters";
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 20),
+
+              customTextField(
+                label: "Confirm Password",
+                hint: "Confirm Your Password",
+                controller: _confirmPasswordController,
+                obscureText: !isConfirmPasswordVisible,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isConfirmPasswordVisible = !isConfirmPasswordVisible;
+                    });
+                  },
+                  icon: Icon(
+                    isConfirmPasswordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please confirm your password";
+                  }
+                  if (value != _passwordController.text) {
+                    return "Passwords do not match";
+                  }
+                  return null;
+                },
+              ),
+
+              const SizedBox(height: 30),
+
+              SizedBox(
+                width: double.infinity,
+                height: 55,
+
+                child: ElevatedButton(
+                  onPressed: signUp,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,
+                    foregroundColor: AppColors.backgroundlight,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    elevation: 0,
+                  ),
+                  child: const Text(
+                    "Register",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
